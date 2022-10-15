@@ -1,8 +1,9 @@
-const path = require("path");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const webpack = require("webpack");
+import path from 'path'
+// @ts-ignore
+import HtmlWebpackPlugin from 'html-webpack-plugin'
+import webpack from 'webpack'
 
-module.exports = {
+const config:webpack.Configuration = {
   // mode - определяет тип сборки development - для разработки production - для прода
   // разница в том, что для прода файл минифицирован
   mode: "development",
@@ -23,6 +24,7 @@ module.exports = {
     }),
     new webpack.ProgressPlugin(),
   ],
+  
   module: {
     rules: [
       // loader для обработки TypeScript
@@ -38,3 +40,5 @@ module.exports = {
     extensions: [".tsx", ".ts", ".js"],
   },
 };
+
+export default config
