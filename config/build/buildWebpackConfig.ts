@@ -20,10 +20,12 @@ export function buildWebpackConfig(
     plugins: buildPlugins(paths.html),
 
     module: {
-      rules: buildLoaders(),
+      rules: buildLoaders(options),
     },
     resolve: buildResolvers(),
     devtool: isDev ? "inline-source-map" : undefined,
     devServer: isDev ? buildDevServe(options) : undefined,
   };
 }
+
+
