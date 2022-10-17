@@ -7,6 +7,7 @@ const buildDevServe = (options: BuildOptions): DevServerConfiguration => {
     port: options.port,
     // при поднятии сервера откроется вкладка в браузере
     open: true,
+    historyApiFallback: true,
   };
 };
 
