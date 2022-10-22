@@ -4,6 +4,7 @@ export interface BuildPaths {
   entry: string; // путь до файла входа
   build: string; // путь до файла сборки (бандл)
   html: string; // путь до шаблона html
+  src: string; // путь до точки входа для абсолютных путей
 }
 
 export interface BuildOptions {
