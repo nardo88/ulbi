@@ -12,7 +12,7 @@ export const Sidebar: FC<Sidebat> = () => {
       className={classNames(cls.sidebar, { [cls.collapsed]: collapsed }, [])}
     >
       <button onClick={onToggle}>toggle</button>
-      <div>
+      <div className={cls.switcher}>
         <ThemeSwitcher />
       </div>
     </div>
