@@ -1,5 +1,6 @@
 import { classNames } from "helpers/classNames/classNames";
 import { FC, useState } from "react";
+import { LangSwitcher } from "shared/ui/LangSwitcher/LangSwitcher";
 import { ThemeSwitcher } from "shared/ui/ThemeSwitcher";
 import cls from "./Sidebat.module.scss";
 interface Sidebat {}
@@ -14,6 +15,7 @@ export const Sidebar: FC<Sidebat> = () => {
       <button onClick={onToggle}>toggle</button>
       <div className={cls.switcher}>
         <ThemeSwitcher />
+        <LangSwitcher className={cls.lang} />
       </div>
     </div>
   );
