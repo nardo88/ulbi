@@ -8,6 +8,7 @@ const buildDevServe = (options: BuildOptions): DevServerConfiguration => {
     // при поднятии сервера откроется вкладка в браузере
     open: true,
     historyApiFallback: true,
+    hot: true,
   };
 };
 

@@ -10,7 +10,7 @@ i18n
   .use(initReactI18next)
   .init({
     fallbackLng: "ru", // язык по умолчанию
-    debug: __IS_DEV__, // это свойство нужно что бы в консоль выводились данные для дебага
+    debug: false, // || __IS_DEV__, // это свойство нужно что бы в консоль выводились данные для дебага
     interpolation: {
       escapeValue: false, // not needed for react as it escapes by default
     },
