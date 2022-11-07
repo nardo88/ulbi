@@ -1,10 +1,10 @@
 import './styles/index.scss'
 import { useTheme } from 'app/providers/ThemeProvider'
 import { classNames } from 'helpers/classNames/classNames'
-import { AppRouter } from './providers/router'
 import { Navbar } from 'widgets/Navbar'
 import { Sidebar } from 'widgets/Sidebar'
 import { Suspense } from 'react'
+import { AppRouter } from './providers/router'
 
 function App() {
   const { theme } = useTheme()
