@@ -59,6 +59,7 @@ module.exports = {
     'react/jsx-closing-bracket-location': 'off',
     'no-redeclare': 'off',
     'max-len': 'off',
+    'linebreak-style': 'off',
   },
   globals: {
     __IS_DEV__: true,
