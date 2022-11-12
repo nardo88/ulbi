@@ -1,6 +1,7 @@
 {
   "extends": "stylelint-config-standard-scss",
   "rules": {
-    "no-missing-end-of-source-newline": null
+    "indentation": [4],
+    "selector-class-pattern": null
   }
 }

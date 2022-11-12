@@ -54,7 +54,7 @@ module.exports = {
     // предпочтение const
     'prefer-const': 'error',
     // запятые в объектах. Последний ключ с запятой
-    'comma-dangle': ['error', 'always-multiline'],
+    'comma-dangle': ['off'],
     'arrow-body-style': 'off',
     'react/jsx-closing-bracket-location': 'off',
     'no-redeclare': 'off',

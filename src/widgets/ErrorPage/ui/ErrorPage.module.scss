@@ -1,7 +1,7 @@
-.notFoundPage {
+.errorPage {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100%;
-    font: var(--font-l);
+    flex-direction: column;
+    height: 100vh;
 }
