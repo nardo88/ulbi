@@ -11,6 +11,7 @@ export const Sidebar: FC<Sidebat> = () => {
   const onToggle = () => setCollapsed(!collapsed)
   return (
     <div
+      data-testid="sidebar"
       className={classNames(cls.sidebar, { [cls.collapsed]: collapsed }, [])}>
       <button type="button" onClick={onToggle}>
         toggle
