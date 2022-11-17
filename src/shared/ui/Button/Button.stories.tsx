@@ -1,7 +1,9 @@
 import React from 'react'
 import { ComponentStory, ComponentMeta } from '@storybook/react'
-
-import { Button } from './Button'
+import 'app/styles/index.scss'
+import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator'
+import { Theme } from 'app/providers/ThemeProvider/lib/ThemeContext'
+import { Button, ThemeButton } from './Button'
 
 export default {
   // shared - указание раздела где будет отображен stories
@@ -15,18 +17,24 @@ export default {
 } as ComponentMeta<typeof Button>
 
 // Создаем шаблон на основе нашего компонента
-const Template: ComponentStory<typeof Button> = (args) => (
-  <Button {...args}>Text</Button>
-)
+const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />
 
 // создаем экземпляры нашего шаблона и передаем им разные пропсы
 export const Primary = Template.bind({})
+Primary.decorators = [ThemeDecorator(Theme.LIGHT)]
 Primary.args = {
-  primary: true,
-  label: 'Button',
+  children: 'Text',
 }
 
-export const Secondary = Template.bind({})
-Secondary.args = {
-  label: 'Button',
+export const Clear = Template.bind({})
+Clear.args = {
+  children: 'Text',
+  theme: ThemeButton.CLEAR,
+}
+
+export const Outline = Template.bind({})
+
+Outline.args = {
+  children: 'Text',
+  theme: ThemeButton.OUTLINE,
 }
