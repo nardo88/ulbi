@@ -17,10 +17,12 @@ export default {
 } as ComponentMeta<typeof Button>
 
 // Создаем шаблон на основе нашего компонента
+// eslint-disable-next-line react/jsx-props-no-spreading
 const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />
 
 // создаем экземпляры нашего шаблона и передаем им разные пропсы
 export const Primary = Template.bind({})
+// мы можем конкретно для каждого экземпляра указать свой декоратор
 Primary.decorators = [ThemeDecorator(Theme.LIGHT)]
 Primary.args = {
   children: 'Text',
@@ -33,6 +35,7 @@ Clear.args = {
 }
 
 export const Outline = Template.bind({})
+Primary.decorators = [ThemeDecorator(Theme.DARK)]
 
 Outline.args = {
   children: 'Text',

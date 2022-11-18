@@ -37,7 +37,7 @@ module.exports = {
     // отключаем обязательный импорт React
     'react/react-in-jsx-scope': 'off',
     // warning - при использовании spread для пропсов
-    'react/jsx-props-no-spreading': 'warn',
+    'react/jsx-props-no-spreading': 'off',
     // разрешаем стрелочные функции для компонентов
     'react/function-component-definition': 'off',
     'no-shadow': 'off',
