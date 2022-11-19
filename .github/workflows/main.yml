@@ -1,7 +1,30 @@
-name: Github Action Demo
-on: [push]
+name: linting, testing, building
+on:
+  push: # запускаться CI будет при пуше в метку main
+    branches: [main]
+  pul_request: # и при создании пул реквеста в ветку main
+    branches: [main]
 jobs:
-  write-to-console:
-    runs-on: ubuntu-latest
-    steps:
-      - run: echo 'Hello world!'
+  pipline: # занвание задачи
+    runs-on: ubuntu-latest # операционная система в оболочке которой буду запускаться скрипты
+  strategy:
+    matrix:
+      node-version: [17.x] # указываем версию nodeJS
+  steps: # описываем шаги
+    # тут мы устанавливаем Node.JS
+    - uses: actions/checkout@v2
+    - name: Staring Node.js ${{matrix.node-version}}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{matrix.node-version}}
+    # Далее описываем сами шаги
+    - name: install modules
+    - run: npm install # устанавливаем пакеты
+    - name: build production project
+    - run: npm run build:prod # выполняем прод сборку
+    - name: linting typescript
+    - run: npm run lint:ts # запускаем линтинг TypeScript
+    - name: linting css
+    - run: npm run lint:scss # заускаем линтинг SCSS
+    - name: unit testing
+    - run: npm run test:unit # заускаем unit тесты
