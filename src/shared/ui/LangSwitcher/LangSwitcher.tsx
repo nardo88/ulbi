@@ -2,7 +2,6 @@ import { classNames } from 'helpers/classNames/classNames'
 import { FC } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Button, ThemeButton } from '../Button/Button'
-import cls from './LangSwitcher.module.scss'
 
 interface LangSwitcher {
   className: string;
