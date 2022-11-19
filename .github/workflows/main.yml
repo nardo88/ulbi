@@ -5,25 +5,29 @@ on: # наш CI будет запускаться при пушке в main ве
   pull_request:
     branches: [main]
 jobs:
-  pipeline:
-    runs-on: ubuntu-latest
+  pipeline: # pipeline - это придуманное имя (можно написать любое)
+    runs-on: ubuntu-latest # CI будет запушен в среде ubuntu
     strategy:
       matrix:
-        node-version: [17.x]
+        node-version: [17.x] # - версия NodeJS
 
-    steps:
+    steps: # - описываем шаги
       - uses: actions/checkout@v2
       - name: Staring Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v1 # - устанавливаем NodeJS
         with:
           node-version: ${{ matrix.node-version }}
       - name: install modules
-        run: npm install
+        run: npm install # - устанавливаем зависимости
       - name: build production project
-        run: npm run build:prod
+        run: npm run build:prod # - выполняем сборку
       - name: linting typescript
-        run: npm run lint:ts
+        run: npm run lint:ts # - запускаем линтинг TypeScript
       - name: linting css
-        run: npm run lint:scss
+        run: npm run lint:scss # - запускаем линтинг SCSS
       - name: unit testing
-        run: npm run test:unit
+        run: npm run test:unit # - запускаем unit тесты
+      - name: build storybook
+        run: npm run storybook:build # - запускаем сборку storybook
+      - name: screenshot testing
+        run: npm run test:ui:ci # - запускаем скриншотные тесты
