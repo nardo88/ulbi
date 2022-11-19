@@ -10,6 +10,7 @@ jobs:
   strategy:
     matrix:
       node-version: [17.x] # указываем версию nodeJS
+
   steps: # описываем шаги
     # тут мы устанавливаем Node.JS
     - uses: actions/checkout@v2
