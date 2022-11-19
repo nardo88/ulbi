@@ -4,9 +4,9 @@ import webpack from 'webpack'
 
 const buildPlugins = (
   htmlPAth: string,
-  isDev: boolean,
+  isDev: boolean
 ): webpack.WebpackPluginInstance[] => {
-  return [
+  const plugins = [
     new HtmlWebpackPlugin({
       template: htmlPAth,
     }),
@@ -18,8 +18,13 @@ const buildPlugins = (
     new webpack.DefinePlugin({
       __IS_DEV__: JSON.stringify(isDev),
     }),
-    new webpack.HotModuleReplacementPlugin(),
   ]
+
+  if (isDev) {
+    plugins.push(new webpack.HotModuleReplacementPlugin())
+  }
+
+  return plugins
 }
 
 export default buildPlugins
