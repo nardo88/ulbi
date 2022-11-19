@@ -6,10 +6,10 @@ on: # наш CI будет запускаться при пушке в main ве
     branches: [main]
 jobs:
   pipeline: # pipeline - это придуманное имя (можно написать любое)
-    runs-on: ubuntu-latest # CI будет запушен в среде ubuntu
+    runs-on: macos-latest # CI будет запушен в среде ubuntu
     strategy:
       matrix:
-        node-version: [17.x] # - версия NodeJS
+        node-version: [16.x] # - версия NodeJS
 
     steps: # - описываем шаги
       - uses: actions/checkout@v2
