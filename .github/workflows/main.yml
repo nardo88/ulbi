@@ -1,9 +1,9 @@
 name: linting, testing, building
-on:
+on: # наш CI будет запускаться при пушке в main ветку и при pull_request
   push:
-    branches: [master]
+    branches: [main]
   pull_request:
-    branches: [master]
+    branches: [main]
 jobs:
   pipeline:
     runs-on: ubuntu-latest
