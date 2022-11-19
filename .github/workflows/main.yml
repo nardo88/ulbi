@@ -2,7 +2,7 @@ name: linting, testing, building
 on:
   push: # запускаться CI будет при пуше в метку main
     branches: [main]
-  pul_request: # и при создании пул реквеста в ветку main
+  pull_request: # и при создании пул реквеста в ветку main
     branches: [main]
 jobs:
   pipline: # занвание задачи
