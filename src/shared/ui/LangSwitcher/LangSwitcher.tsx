@@ -1,10 +1,10 @@
 import { classNames } from 'helpers/classNames/classNames'
 import { FC } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Button, ThemeButton } from '../Button/Button'
+import { Button, ButtonSize, ButtonTheme } from '../Button/Button'
 
 interface LangSwitcher {
-  className: string;
+  className: string
 }
 
 export const LangSwitcher: FC<LangSwitcher> = ({ className }) => {
@@ -15,9 +15,10 @@ export const LangSwitcher: FC<LangSwitcher> = ({ className }) => {
   }
   return (
     <Button
-      theme={ThemeButton.CLEAR}
+      theme={ButtonTheme.CLEAR}
       onClick={toggle}
       className={classNames('', {}, [className])}
+      size={ButtonSize.M}
     >
       {t('Язык')}
     </Button>

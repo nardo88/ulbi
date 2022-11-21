@@ -4,7 +4,7 @@ import { FC } from 'react'
 import LightIcon from 'shared/assets/icons/light.svg'
 import DarkIcon from 'shared/assets/icons/dark.svg'
 import { Theme } from 'app/providers/ThemeProvider/lib/ThemeContext'
-import { Button, ThemeButton } from 'shared/ui/Button/Button'
+import { Button, ButtonTheme } from 'shared/ui/Button/Button'
 
 interface ThemeSwitcher {}
 
@@ -13,7 +13,7 @@ export const ThemeSwitcher: FC<ThemeSwitcher> = () => {
 
   return (
     <Button
-      theme={ThemeButton.CLEAR}
+      theme={ButtonTheme.CLEAR}
       className={classNames('', {}, [])}
       onClick={toggleTheme}
     >
