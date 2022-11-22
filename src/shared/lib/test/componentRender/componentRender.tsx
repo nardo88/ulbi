@@ -6,7 +6,7 @@ export interface renderWithRouterOptions {
   route?: string
 }
 
-export function componentRender(
+export function ComponentRender(
   component: ReactNode,
   options: renderWithRouterOptions = {}
 ) {
