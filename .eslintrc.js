@@ -60,6 +60,7 @@ module.exports = {
     'no-redeclare': 'off',
     'max-len': 'off',
     'linebreak-style': 'off',
+    'prefer-arrow-callback': 'off',
   },
   globals: {
     __IS_DEV__: true,
