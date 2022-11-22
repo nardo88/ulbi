@@ -4,10 +4,11 @@ import { useTranslation } from 'react-i18next'
 import { Button, ButtonSize, ButtonTheme } from '../Button/Button'
 
 interface LangSwitcher {
-  className: string
+  className?: string
+  short?: boolean
 }
 
-export const LangSwitcher: FC<LangSwitcher> = ({ className }) => {
+export const LangSwitcher: FC<LangSwitcher> = ({ className, short }) => {
   const { t, i18n } = useTranslation()
 
   const toggle = () => {
@@ -20,7 +21,7 @@ export const LangSwitcher: FC<LangSwitcher> = ({ className }) => {
       className={classNames('', {}, [className])}
       size={ButtonSize.M}
     >
-      {t('Язык')}
+      {t(short ? 'Короткий язык' : 'Язык')}
     </Button>
   )
 }

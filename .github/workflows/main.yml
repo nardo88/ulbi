@@ -21,13 +21,18 @@ jobs:
         run: npm install # - устанавливаем зависимости
       - name: build production project
         run: npm run build:prod # - выполняем сборку
+        if: always()
       - name: linting typescript
         run: npm run lint:ts # - запускаем линтинг TypeScript
+        if: always()
       - name: linting css
         run: npm run lint:scss # - запускаем линтинг SCSS
       - name: unit testing
+        if: always()
         run: npm run test:unit # - запускаем unit тесты
       - name: build storybook
         run: npm run storybook:build # - запускаем сборку storybook
+        if: always()
       - name: screenshot testing
         run: npm run test:ui:ci # - запускаем скриншотные тесты
+        if: always()
