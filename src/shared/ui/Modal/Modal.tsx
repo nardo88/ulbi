@@ -19,7 +19,6 @@ export const Modal: FC<Modal> = ({ children, onClose, isOpen }) => {
   const mods: Record<string, boolean> = {
     [cls.opened]: isOpen,
     [cls.isClosing]: isClosing,
-    [cls[theme]]: true,
   }
 
   const closeHandler = useCallback(() => {
