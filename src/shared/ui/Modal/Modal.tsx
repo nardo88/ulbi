@@ -1,20 +1,21 @@
 import React, { FC, useCallback, useEffect, useRef, useState } from 'react'
 import { classNames } from 'helpers/classNames/classNames'
 import { Portal } from 'shared/ui/Portal/Portal'
-import { useTheme } from 'app/providers/ThemeProvider'
 import cls from './Modal.module.scss'
 
 interface Modal {
   isOpen?: boolean
-  onClose: () => void
+  onClose?: () => void
+  lazy?: boolean
 }
 
 const ANIMATION_DELAY = 300
 
-export const Modal: FC<Modal> = ({ children, onClose, isOpen }) => {
+export const Modal: FC<Modal> = ({ children, onClose, isOpen, lazy }) => {
   const [isClosing, setIsClosing] = useState(false)
+  // состояние которое определяет надо ли монтировать модальное окно
+  const [isMounted, setIsMounted] = useState(false)
   const timeRef = useRef<ReturnType<typeof setTimeout>>()
-  const { theme } = useTheme()
 
   const mods: Record<string, boolean> = {
     [cls.opened]: isOpen,
@@ -54,6 +55,15 @@ export const Modal: FC<Modal> = ({ children, onClose, isOpen }) => {
     }
   }, [isOpen, onKeyDown])
 
+  useEffect(() => {
+    if (isOpen) {
+      setIsMounted(true)
+    }
+  }, [isOpen])
+
+  if (lazy && !isMounted) {
+    return null
+  }
   return (
     <Portal>
       <div className={classNames(cls.Modal, mods, [])}>
