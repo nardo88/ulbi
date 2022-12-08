@@ -1,14 +1,35 @@
+import { loginActions } from 'features/AuthByUsername/model/slice/loginSlice'
 import { classNames } from 'helpers/classNames/classNames'
-import { FC } from 'react'
+import { FC, memo, useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Button } from 'shared/ui/Button/Button'
+import { useDispatch, useSelector } from 'react-redux'
+import { Button, ButtonTheme } from 'shared/ui/Button/Button'
 import { Input } from 'shared/ui/Input/Input'
+import { getLoginState } from '../../model/selectors/getLoginState/getLoginState'
 import cls from './LoginForm.module.scss'
 
 interface LoginForm {}
 
-export const LoginForm: FC<LoginForm> = () => {
+export const LoginForm: FC<LoginForm> = memo(() => {
   const { t } = useTranslation()
+  const dispatch = useDispatch()
+  const { password, username } = useSelector(getLoginState)
+
+  const onChangeUsername = useCallback(
+    (val) => {
+      dispatch(loginActions.setUsername(val))
+    },
+    [dispatch]
+  )
+
+  const onChangePassword = useCallback(
+    (val) => {
+      dispatch(loginActions.setPassworf(val))
+    },
+    [dispatch]
+  )
+
+  const onLoginClick = useCallback(() => {}, [])
   return (
     <div className={classNames(cls.LoginForm, {}, [])}>
       <Input
@@ -16,13 +37,23 @@ export const LoginForm: FC<LoginForm> = () => {
         className={cls.input}
         placeholder={t('Введите имя')}
         autoFocus
+        onChange={onChangeUsername}
+        value={username}
       />
       <Input
         type="text"
         className={cls.input}
         placeholder={t('Введите пароль')}
+        onChange={onChangePassword}
+        value={password}
       />
-      <Button className={cls.loginBtn}>{t('Войти')}</Button>
+      <Button
+        theme={ButtonTheme.OUTLINE}
+        className={cls.loginBtn}
+        onClick={onLoginClick}
+      >
+        {t('Войти')}
+      </Button>
     </div>
   )
-}
+})
