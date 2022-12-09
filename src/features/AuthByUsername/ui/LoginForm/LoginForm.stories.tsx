@@ -1,6 +1,7 @@
 import React from 'react'
 import { ComponentStory, ComponentMeta } from '@storybook/react'
 import 'app/styles/index.scss'
+import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator'
 import { LoginForm } from './LoginForm'
 
 export default {
@@ -24,3 +25,8 @@ const Template: ComponentStory<typeof LoginForm> = (args) => (
 export const Primary = Template.bind({})
 // мы можем конкретно для каждого экземпляра указать свой декоратор
 Primary.args = {}
+Primary.decorators = [
+  StoreDecorator({
+    loginForm: { isLoading: false, username: 'admin', password: '123' },
+  }),
+]

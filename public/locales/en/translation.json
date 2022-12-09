@@ -8,6 +8,8 @@
   "Главная": "Main",
   "О нас": "About",
   "Войти": "SignIn",
+  "Выйти": "Logout",
   "Введите имя": "Enter name",
-  "Введите пароль": "Enter password"
+  "Введите пароль": "Enter password",
+  "Форма авторизации": "Login Form"
 }

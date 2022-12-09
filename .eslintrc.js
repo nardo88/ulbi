@@ -45,6 +45,7 @@ module.exports = {
     'import/extensions': 'off',
     'import/no-extraneous-dependencies': 'off',
     'no-underscore-dangle': 'off',
+    'operator-linebreak': 'off',
     // точка с запятой
     semi: ['error', 'never'],
     // одинарные кавычки в импортах и строках
