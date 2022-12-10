@@ -2,7 +2,7 @@ import React from 'react'
 import { ComponentStory, ComponentMeta } from '@storybook/react'
 import 'app/styles/index.scss'
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator'
-import { LoginForm } from './LoginForm'
+import LoginForm from './LoginForm'
 
 export default {
   // shared - указание раздела где будет отображен stories
@@ -28,5 +28,19 @@ Primary.args = {}
 Primary.decorators = [
   StoreDecorator({
     loginForm: { isLoading: false, username: 'admin', password: '123' },
+  }),
+]
+
+export const Error = Template.bind({})
+// мы можем конкретно для каждого экземпляра указать свой декоратор
+Error.args = {}
+Error.decorators = [
+  StoreDecorator({
+    loginForm: {
+      isLoading: true,
+      username: 'admin',
+      password: '123',
+      error: 'Что то пошло не так!',
+    },
   }),
 ]

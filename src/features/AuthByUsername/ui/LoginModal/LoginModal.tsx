@@ -1,8 +1,7 @@
-import { classNames } from 'helpers/classNames/classNames'
-import { FC } from 'react'
+import { FC, Suspense } from 'react'
+import { Loader } from 'shared/ui/Loader/Loader'
 import { Modal } from 'shared/ui/Modal/Modal'
-import { LoginForm } from '../LoginForm/LoginForm'
-import cls from './LoginModal.module.scss'
+import { LoginFormAsync } from '../LoginForm/LoginForm.async'
 
 interface LoginModal {
   isOpen: boolean
@@ -12,7 +11,9 @@ interface LoginModal {
 export const LoginModal: FC<LoginModal> = ({ isOpen, onClose }) => {
   return (
     <Modal isOpen={isOpen} onClose={onClose} lazy>
-      <LoginForm />
+      <Suspense fallback={<Loader />}>
+        <LoginFormAsync />
+      </Suspense>
     </Modal>
   )
 }

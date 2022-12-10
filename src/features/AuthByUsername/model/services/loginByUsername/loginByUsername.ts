@@ -24,6 +24,7 @@ export const loginByUsername = createAsyncThunk<
     if (!response.data) {
       throw new Error()
     }
+    // если данные получили то сохраняем в localstorage и записываем в state
     localStorage.setItem(USER_LOCALSTORAGE_KEY, JSON.stringify(response.data))
     thunkApi.dispatch(userActions.setAuthData(response.data))
     return response.data

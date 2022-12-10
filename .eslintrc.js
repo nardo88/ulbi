@@ -28,8 +28,6 @@ module.exports = {
     'import/no-unresolved': 'off',
     // отключаем предпочтение дефолтного экспорта
     'import/prefer-default-export': 'off',
-    // отмечать warning не использованные переменные
-    'no-unused-vars': 'warn',
     // не допустимы console.log()
     'no-console': 'warn',
     // отключаем проверку на указание дефолтного значениея у необязательного пропса
@@ -68,6 +66,10 @@ module.exports = {
     'react-hooks/exhaustive-deps': 'error', // Checks effect dependencies
     'object-curly-newline': 'off',
     'no-param-reassign': 'off',
+    'no-unused-vars': 'off',
+    '@typescript-eslint/no-unused-vars': 'warn',
+    'react/prop-types': 'off',
+    'implicit-arrow-linebreak': 'off',
   },
   globals: {
     __IS_DEV__: true,
