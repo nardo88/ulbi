@@ -1,21 +1,23 @@
 import { classNames } from 'helpers/classNames/classNames'
-import { FC, useState } from 'react'
-import { RoutePath } from 'shared/config/routerConfig/routerConfig'
-import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink'
+import { FC, memo, useMemo, useState } from 'react'
 import { Button, ButtonSize, ButtonTheme } from 'shared/ui/Button/Button'
 import { LangSwitcher } from 'shared/ui/LangSwitcher/LangSwitcher'
 import { ThemeSwitcher } from 'shared/ui/ThemeSwitcher'
-import MainIcon from 'shared/assets/icons/main.svg'
-import AboutIcon from 'shared/assets/icons/about.svg'
-import { useTranslation } from 'react-i18next'
 import cls from './Sidebat.module.scss'
+import { SidebarItemList, SidebarItemType } from '../../model/items'
+import { SidebarItem } from '../SidebarItem/SidebarItem'
 
 interface Sidebat {}
 
-export const Sidebar: FC<Sidebat> = () => {
+export const Sidebar: FC<Sidebat> = memo(() => {
   const [collapsed, setCollapsed] = useState<boolean>(false)
-  const { t } = useTranslation()
   const onToggle = () => setCollapsed(!collapsed)
+
+  const itemList = useMemo(() => {
+    return SidebarItemList.map((item: SidebarItemType) => (
+      <SidebarItem key={item.path} item={item} collapsed={collapsed} />
+    ))
+  }, [collapsed])
   return (
     <div
       data-testid="sidebar"
@@ -31,28 +33,11 @@ export const Sidebar: FC<Sidebat> = () => {
       >
         {collapsed ? '>' : '<'}
       </Button>
-      <div className={cls.items}>
-        <AppLink
-          className={cls.item}
-          theme={AppLinkTheme.SECONDARY}
-          to={RoutePath.main}
-        >
-          <MainIcon className={cls.icon} />
-          <span className={cls.link}>{t('Главная')}</span>
-        </AppLink>
-        <AppLink
-          className={cls.item}
-          theme={AppLinkTheme.SECONDARY}
-          to={RoutePath.about}
-        >
-          <AboutIcon className={cls.icon} />
-          <span className={cls.link}>{t('О нас')}</span>
-        </AppLink>
-      </div>
+      <div className={cls.items}>{itemList}</div>
       <div className={cls.switcher}>
         <ThemeSwitcher />
         <LangSwitcher short={collapsed} className={cls.lang} />
       </div>
     </div>
   )
-}
+})
