@@ -1,5 +1,4 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
-import axios from 'axios'
 // схема данных User
 import { User, userActions } from 'entities/User'
 import { USER_LOCALSTORAGE_KEY } from 'shared/consts/localstorage'
@@ -16,19 +15,18 @@ export const loginByUsername = createAsyncThunk<
   loginByUsernameProps,
   { rejectValue: string }
 >('login/loginByUsername', async (authData, thunkApi) => {
+  const { dispatch, rejectWithValue, extra } = thunkApi
   try {
-    const response = await axios.post<User>(
-      'http://localhost:8000/login',
-      authData
-    )
+    const response = await extra.api.post<User>('/login', authData)
     if (!response.data) {
       throw new Error()
     }
     // если данные получили то сохраняем в localstorage и записываем в state
     localStorage.setItem(USER_LOCALSTORAGE_KEY, JSON.stringify(response.data))
-    thunkApi.dispatch(userActions.setAuthData(response.data))
+    dispatch(userActions.setAuthData(response.data))
+    extra.navigate('/about')
     return response.data
   } catch (e) {
-    return thunkApi.rejectWithValue('Вы ввели не верный логин или пароль')
+    return rejectWithValue('Вы ввели не верный логин или пароль')
   }
 })
