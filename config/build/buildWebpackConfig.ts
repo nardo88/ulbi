@@ -6,9 +6,9 @@ import buildResolvers from './buildResolvers'
 import { BuildOptions } from './types/config'
 
 export function buildWebpackConfig(
-  options: BuildOptions,
+  options: BuildOptions
 ): webpack.Configuration {
-  const { mode, paths, isDev } = options
+  const { mode, paths, isDev, apiUrl } = options
   return {
     mode,
     entry: paths.entry,
@@ -17,7 +17,7 @@ export function buildWebpackConfig(
       path: paths.build,
       clean: true,
     },
-    plugins: buildPlugins(paths.html, isDev),
+    plugins: buildPlugins(paths.html, isDev, apiUrl),
 
     module: {
       rules: buildLoaders(options),

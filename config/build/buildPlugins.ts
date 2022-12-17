@@ -4,7 +4,8 @@ import webpack from 'webpack'
 
 const buildPlugins = (
   htmlPAth: string,
-  isDev: boolean
+  isDev: boolean,
+  apiUrl: string
 ): webpack.WebpackPluginInstance[] => {
   const plugins = [
     new HtmlWebpackPlugin({
@@ -17,6 +18,7 @@ const buildPlugins = (
     }),
     new webpack.DefinePlugin({
       __IS_DEV__: JSON.stringify(isDev),
+      __API__: JSON.stringify(apiUrl),
     }),
   ]
 
