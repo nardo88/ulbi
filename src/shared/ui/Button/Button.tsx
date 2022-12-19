@@ -1,4 +1,4 @@
-import { classNames } from 'helpers/classNames/classNames'
+import { classNames, Mods } from 'helpers/classNames/classNames'
 import { ButtonHTMLAttributes, FC } from 'react'
 import cls from './Button.module.scss'
 
@@ -35,13 +35,13 @@ interface Button extends ButtonHTMLAttributes<HTMLButtonElement> {
 export const Button: FC<Button> = ({
   children,
   className,
-  theme,
+  theme = ButtonTheme.OUTLINE,
   square,
   disabled,
   size = ButtonSize.M,
   ...other
 }) => {
-  const mods: Record<string, boolean> = {
+  const mods: Mods = {
     [cls.square]: square,
     [cls[size]]: true,
     [cls.disabled]: disabled,

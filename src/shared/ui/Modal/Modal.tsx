@@ -1,5 +1,5 @@
 import React, { FC, useCallback, useEffect, useRef, useState } from 'react'
-import { classNames } from 'helpers/classNames/classNames'
+import { classNames, Mods } from 'helpers/classNames/classNames'
 import { Portal } from 'shared/ui/Portal/Portal'
 import cls from './Modal.module.scss'
 
@@ -17,7 +17,7 @@ export const Modal: FC<Modal> = ({ children, onClose, isOpen, lazy }) => {
   const [isMounted, setIsMounted] = useState(false)
   const timeRef = useRef<ReturnType<typeof setTimeout>>()
 
-  const mods: Record<string, boolean> = {
+  const mods: Mods = {
     [cls.opened]: isOpen,
     [cls.isClosing]: isClosing,
   }
