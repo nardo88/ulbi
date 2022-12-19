@@ -1,7 +1,4 @@
-import {
-  loginActions,
-  loginReducer,
-} from 'features/AuthByUsername/model/slice/loginSlice'
+import { loginActions, loginReducer } from 'features/AuthByUsername/model/slice/loginSlice'
 import { classNames } from 'helpers/classNames/classNames'
 import { FC, memo, useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
