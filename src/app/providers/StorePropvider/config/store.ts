@@ -1,7 +1,9 @@
 import {
+  CombinedState,
   configureStore,
   // eslint-disable-next-line
   getDefaultMiddleware,
+  Reducer,
   ReducersMapObject,
 } from '@reduxjs/toolkit'
 import { counterReducer } from 'entities/Counter'
@@ -30,8 +32,7 @@ export function createReduxStore(
   }
 
   const store = configureStore({
-    // @ts-ignore
-    reducer: reducerManager.reduce as ReducersMapObject<StateSchema>,
+    reducer: reducerManager.reduce as Reducer<CombinedState<StateSchema>>,
     devTools: __IS_DEV__,
     preloadedState: initialState,
     middleware: (getDefaultMiddleware) =>
