@@ -1,40 +1,26 @@
-import { classNames } from 'helpers/classNames/classNames'
-import React, {
-  FC,
-  InputHTMLAttributes,
-  memo,
-  useEffect,
-  useRef,
-  useState,
-} from 'react'
+import { classNames, Mods } from 'helpers/classNames/classNames'
+import React, { FC, InputHTMLAttributes, memo, useEffect, useRef, useState } from 'react'
 import cls from './Input.module.scss'
 
 // Omit позволяет забрать из типа все пропсы, но исключить те которые вызывают у нас конфликты
-type HTMLInputProps = Omit<
-  InputHTMLAttributes<HTMLInputElement>,
-  'value' | 'onChange'
->
+type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' | 'readonly'>
 
 interface Input extends HTMLInputProps {
   className?: string
   value?: string
-  // eslint-disable-next-line no-unused-vars
   onChange?: (value: string) => void
   placeholder?: string
   autoFocus?: boolean
+  readonly?: boolean
 }
 
 export const Input: FC<Input> = memo((props: Input) => {
-  const {
-    className,
-    value,
-    type,
-    placeholder,
-    onChange,
-    autoFocus,
-    ...otherProps
-  } = props
+  const { className, value, type, placeholder, onChange, autoFocus, readOnly, ...otherProps } =
+    props
 
+  const mods: Mods = {
+    [cls.readonly]: readOnly,
+  }
   const [isFocused, setIsFocused] = useState(false)
   const [caretPosition, setCaretPosition] = useState(0)
   const ref = useRef<HTMLInputElement>(null)
@@ -64,9 +50,7 @@ export const Input: FC<Input> = memo((props: Input) => {
 
   return (
     <div className={classNames(cls.InputWrapper, {}, [className])}>
-      {placeholder && (
-        <div className={cls.placeholder}>{`${placeholder}>`}</div>
-      )}
+      {placeholder && <div className={cls.placeholder}>{`${placeholder}>`}</div>}
       <div className={cls.caretWrapper}>
         <input
           ref={ref}
@@ -77,14 +61,10 @@ export const Input: FC<Input> = memo((props: Input) => {
           onBlur={onBlure}
           onFocus={onFocus}
           onSelect={onSelect}
+          readOnly={readOnly}
           {...otherProps}
         />
-        {isFocused && (
-          <span
-            className={cls.caret}
-            style={{ left: `${caretPosition * 9}px` }}
-          />
-        )}
+        {isFocused && <span className={cls.caret} style={{ left: `${caretPosition * 9}px` }} />}
       </div>
     </div>
   )

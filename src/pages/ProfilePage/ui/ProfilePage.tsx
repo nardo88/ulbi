@@ -1,12 +1,21 @@
 import { FC, useEffect } from 'react'
 import { classNames } from 'helpers/classNames/classNames'
-import { useTranslation } from 'react-i18next'
 import {
   DinamicModuleLoader,
   ReducerList,
 } from 'shared/lib/components/DinamicModuleLoader/DinamicModuleLoader'
-import { fetchProfileData, ProfileCard, profileReducer } from 'entities/Profile'
+import {
+  fetchProfileData,
+  getProfileData,
+  getProfileError,
+  getProfileIsloading,
+  getProfileReadonly,
+  ProfileCard,
+  profileReducer,
+} from 'entities/Profile'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
+import { useSelector } from 'react-redux'
+import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader'
 
 interface ProfilePage {
   className?: string
@@ -17,9 +26,11 @@ const redusers: ReducerList = {
 }
 
 const ProfilePage: FC<ProfilePage> = ({ className }) => {
-  const { t } = useTranslation()
-
   const dispatch = useAppDispatch()
+  const data = useSelector(getProfileData)
+  const isLoading = useSelector(getProfileIsloading)
+  const error = useSelector(getProfileError)
+  const readonly = useSelector(getProfileReadonly)
 
   useEffect(() => {
     dispatch(fetchProfileData())
@@ -27,7 +38,8 @@ const ProfilePage: FC<ProfilePage> = ({ className }) => {
   return (
     <DinamicModuleLoader reducers={redusers} removeAfterUnmount>
       <div className={classNames('', {}, [className])}>
-        <ProfileCard />
+        <ProfilePageHeader />
+        <ProfileCard data={data} isLoading={isLoading} error={error} readonly={readonly} />
       </div>
     </DinamicModuleLoader>
   )

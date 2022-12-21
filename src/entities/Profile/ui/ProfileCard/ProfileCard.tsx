@@ -1,43 +1,59 @@
 import { FC } from 'react'
 import { classNames } from 'helpers/classNames/classNames'
 import { useTranslation } from 'react-i18next'
-import { Text } from 'shared/ui/Text/Text'
-import { useSelector } from 'react-redux'
+import { Text, TextAlign, TextTheme } from 'shared/ui/Text/Text'
 import { Input } from 'shared/ui/Input/Input'
-import { Button, ButtonTheme } from 'shared/ui/Button/Button'
-import { getProfileData } from '../../model/selectors/getProfileData/getProfileData'
-import { getProfileIsloading } from '../../model/selectors/getProfileIsloading/getProfileIsloading'
-import { getProfileError } from '../../model/selectors/getProfileError/getProfileError'
+import { Loader } from 'shared/ui/Loader/Loader'
+import { Profile } from '../../model/types/profile'
 import cls from './ProfileCard.module.scss'
 
 interface ProfileCard {
   className?: string
+  data?: Profile
+  isLoading?: boolean
+  error?: string
+  readonly?: boolean
 }
 
-export const ProfileCard: FC<ProfileCard> = ({ className }) => {
+export const ProfileCard: FC<ProfileCard> = (props) => {
+  const { className, data, error, isLoading, readonly } = props
   const { t } = useTranslation('profile')
-  const data = useSelector(getProfileData)
-  const isLoading = useSelector(getProfileIsloading)
-  const error = useSelector(getProfileError)
+
+  if (isLoading) {
+    return (
+      <div className={classNames(cls.ProfileCard, { [cls.loading]: true }, [className])}>
+        <Loader />
+      </div>
+    )
+  }
+
+  if (error) {
+    return (
+      <div className={classNames(cls.ProfileCard, {}, [className, cls.error])}>
+        <Text
+          align={TextAlign.CENTER}
+          theme={TextTheme.ERROR}
+          title={t('Произошла ошибка при загрузке профиля')}
+          text={t('Попробуйте обновить страницу')}
+        />
+      </div>
+    )
+  }
 
   return (
     <div className={classNames(cls.ProfileCard, {}, [className])}>
-      <div className={cls.header}>
-        <Text title={t('Профиль')} />
-        <Button theme={ButtonTheme.OUTLINE} className={cls.editBtn}>
-          {t('Редактировать')}
-        </Button>
-      </div>
       <div className={cls.data}>
         <Input
           value={data?.first}
           placeholder={t('Ваше имя')}
           className={cls.input}
+          readonly={readonly}
         />
         <Input
           value={data?.lastname}
           placeholder={t('Ваша фамилия')}
           className={cls.input}
+          readonly={readonly}
         />
       </div>
     </div>

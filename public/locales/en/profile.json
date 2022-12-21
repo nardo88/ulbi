@@ -1,6 +1,9 @@
 {
   "Профиль": "Profile",
   "Редактировать": "Edit",
+  "Сохранить": "Save",
   "Ваше имя": "Your name",
-  "Ваша фамилия": "Your surname"
+  "Ваша фамилия": "Your surname",
+  "Произошла ошибка при загрузке профиля": "An error occurred while loading the profile",
+  "Попробуйте обновить страницу": "Try to refresh page"
 }
