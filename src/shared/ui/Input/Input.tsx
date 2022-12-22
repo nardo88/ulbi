@@ -21,9 +21,11 @@ export const Input: FC<Input> = memo((props: Input) => {
   const mods: Mods = {
     [cls.readonly]: readOnly,
   }
+
   const [isFocused, setIsFocused] = useState(false)
   const [caretPosition, setCaretPosition] = useState(0)
   const ref = useRef<HTMLInputElement>(null)
+  const isaretVisible = isFocused && !readOnly
 
   const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     onChange?.(e.target.value)
@@ -64,7 +66,7 @@ export const Input: FC<Input> = memo((props: Input) => {
           readOnly={readOnly}
           {...otherProps}
         />
-        {isFocused && <span className={cls.caret} style={{ left: `${caretPosition * 9}px` }} />}
+        {isaretVisible && <span className={cls.caret} style={{ left: `${caretPosition * 9}px` }} />}
       </div>
     </div>
   )
