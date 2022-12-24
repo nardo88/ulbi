@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next'
 import { Text, TextAlign, TextTheme } from 'shared/ui/Text/Text'
 import { Input } from 'shared/ui/Input/Input'
 import { Loader } from 'shared/ui/Loader/Loader'
+import { Avatar } from 'shared/ui/Avatar/Avatar'
 import { Profile } from '../../model/types/profile'
 import cls from './ProfileCard.module.scss'
 
@@ -61,6 +62,11 @@ export const ProfileCard: FC<ProfileCard> = (props) => {
   return (
     <div className={classNames(cls.ProfileCard, {}, [className])}>
       <div className={cls.data}>
+        {data?.avatar && (
+          <div className={cls.avatarWrapper}>
+            <Avatar src={data?.avatar} alt={data?.username} />
+          </div>
+        )}
         <Input
           value={data?.first}
           placeholder={t('Ваше имя')}
@@ -98,7 +104,7 @@ export const ProfileCard: FC<ProfileCard> = (props) => {
         />
         <Input
           value={data?.avatar}
-          placeholder={t('Ваш аватар')}
+          placeholder={t('Введите ссылку на аватар')}
           className={cls.input}
           readOnly={readonly}
           onChange={onChangeAvatar}
