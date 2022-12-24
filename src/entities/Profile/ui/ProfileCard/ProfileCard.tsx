@@ -15,10 +15,26 @@ interface ProfileCard {
   readonly?: boolean
   onChangeFirstName?: (value: string) => void
   onChangeLastname?: (value: string) => void
+  onChangeAge?: (value: string) => void
+  onChangeCity?: (value: string) => void
+  onChangeUsername?: (value: string) => void
+  onChangeAvatar?: (value: string) => void
 }
 
 export const ProfileCard: FC<ProfileCard> = (props) => {
-  const { className, data, error, isLoading, readonly, onChangeLastname, onChangeFirstName } = props
+  const {
+    className,
+    data,
+    error,
+    isLoading,
+    readonly,
+    onChangeLastname,
+    onChangeFirstName,
+    onChangeAge,
+    onChangeCity,
+    onChangeUsername,
+    onChangeAvatar,
+  } = props
   const { t } = useTranslation('profile')
 
   if (isLoading) {
@@ -58,6 +74,34 @@ export const ProfileCard: FC<ProfileCard> = (props) => {
           className={cls.input}
           readOnly={readonly}
           onChange={onChangeLastname}
+        />
+        <Input
+          value={data?.age}
+          placeholder={t('Ваш возраст')}
+          className={cls.input}
+          readOnly={readonly}
+          onChange={onChangeAge}
+        />
+        <Input
+          value={data?.city}
+          placeholder={t('Ваш город')}
+          className={cls.input}
+          readOnly={readonly}
+          onChange={onChangeCity}
+        />
+        <Input
+          value={data?.username}
+          placeholder={t('Ваш логин')}
+          className={cls.input}
+          readOnly={readonly}
+          onChange={onChangeUsername}
+        />
+        <Input
+          value={data?.avatar}
+          placeholder={t('Ваш аватар')}
+          className={cls.input}
+          readOnly={readonly}
+          onChange={onChangeAvatar}
         />
       </div>
     </div>

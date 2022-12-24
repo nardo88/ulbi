@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next'
 import { Text } from 'shared/ui/Text/Text'
 import { Button, ButtonTheme } from 'shared/ui/Button/Button'
 import { useDispatch, useSelector } from 'react-redux'
-import { getProfileReadonly, profileActions } from 'entities/Profile'
+import { getProfileReadonly, profileActions, updateProfileData } from 'entities/Profile'
 import cls from './ProfilePageHeader.module.scss'
 
 interface ProfilePageHeader {
@@ -25,7 +25,8 @@ export const ProfilePageHeader: FC<ProfilePageHeader> = ({ className }) => {
   }, [dispatch])
 
   const onSave = useCallback(() => {
-    dispatch(profileActions.canselEdit())
+    dispatch(updateProfileData())
+    dispatch(profileActions.setReadonly(true))
   }, [dispatch])
 
   return (
@@ -40,7 +41,7 @@ export const ProfilePageHeader: FC<ProfilePageHeader> = ({ className }) => {
           <Button theme={ButtonTheme.OUTLINE_RED} className={cls.editBtn} onClick={onCanceled}>
             {t('Отменить')}
           </Button>
-          <Button theme={ButtonTheme.OUTLINE} className={cls.editBtn} onClick={onSave}>
+          <Button theme={ButtonTheme.OUTLINE} className={cls.saveBtn} onClick={onSave}>
             {t('Сохранить')}
           </Button>
         </>

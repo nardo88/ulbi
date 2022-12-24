@@ -39,14 +39,26 @@ const ProfilePage: FC<ProfilePage> = ({ className }) => {
 
   const onChangeFirstName = useCallback(
     (value?: string) => {
-      dispatch(profileActions.updateProfile({ first: value }))
+      dispatch(profileActions.updateProfile({ first: value || '' }))
     },
     [dispatch]
   )
 
   const onChangeLastname = useCallback(
     (value?: string) => {
-      dispatch(profileActions.updateProfile({ lastname: value }))
+      dispatch(profileActions.updateProfile({ lastname: value || '' }))
+    },
+    [dispatch]
+  )
+  const onChangeAge = useCallback(
+    (value?: string) => {
+      dispatch(profileActions.updateProfile({ age: Number(value?.replace(/\D/gi, '') || 0) }))
+    },
+    [dispatch]
+  )
+  const onChangeCity = useCallback(
+    (value?: string) => {
+      dispatch(profileActions.updateProfile({ city: value || '' }))
     },
     [dispatch]
   )
@@ -61,6 +73,8 @@ const ProfilePage: FC<ProfilePage> = ({ className }) => {
           readonly={readonly}
           onChangeFirstName={onChangeFirstName}
           onChangeLastname={onChangeLastname}
+          onChangeAge={onChangeAge}
+          onChangeCity={onChangeCity}
         />
       </div>
     </DinamicModuleLoader>

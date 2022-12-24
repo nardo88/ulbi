@@ -7,7 +7,7 @@ type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onC
 
 interface Input extends HTMLInputProps {
   className?: string
-  value?: string
+  value?: string | number
   onChange?: (value: string) => void
   placeholder?: string
   autoFocus?: boolean
@@ -56,7 +56,7 @@ export const Input: FC<Input> = memo((props: Input) => {
       <div className={cls.caretWrapper}>
         <input
           ref={ref}
-          className={cls.input}
+          className={classNames(cls.input, mods, [])}
           type={type}
           value={value}
           onChange={onChangeHandler}
