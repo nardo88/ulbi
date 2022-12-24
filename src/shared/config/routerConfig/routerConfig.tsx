@@ -4,6 +4,10 @@ import { NotFoundPage } from 'pages/NotFoundPage'
 import ProfilePage from 'pages/ProfilePage/ui/ProfilePage'
 import { RouteProps } from 'react-router-dom'
 
+type AppRoutesProps = RouteProps & {
+  authOnly?: boolean
+}
+
 export enum AppRoutes {
   MAIN = 'main',
   ABOUT = 'about',
@@ -22,7 +26,7 @@ export const RoutePath: Record<AppRoutes, string> = {
 }
 
 // RouteProps - специальный тип из react-router-dom который описывает пропсы компонента Route
-export const routerConfig: Record<AppRoutes, RouteProps> = {
+export const routerConfig: Record<AppRoutes, AppRoutesProps> = {
   [AppRoutes.MAIN]: {
     path: RoutePath.main,
     element: <MainPage />,
@@ -34,6 +38,7 @@ export const routerConfig: Record<AppRoutes, RouteProps> = {
   [AppRoutes.PROFILE]: {
     path: RoutePath.profile,
     element: <ProfilePage />,
+    authOnly: true,
   },
 
   // last

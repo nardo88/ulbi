@@ -26,7 +26,6 @@ export const ProfilePageHeader: FC<ProfilePageHeader> = ({ className }) => {
 
   const onSave = useCallback(() => {
     dispatch(updateProfileData())
-    dispatch(profileActions.setReadonly(true))
   }, [dispatch])
 
   return (

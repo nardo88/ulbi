@@ -15,17 +15,17 @@ interface Input extends HTMLInputProps {
 }
 
 export const Input: FC<Input> = memo((props: Input) => {
-  const { className, value, type, placeholder, onChange, autoFocus, readOnly, ...otherProps } =
+  const { className, value, type, placeholder, onChange, autoFocus, readonly, ...otherProps } =
     props
 
   const mods: Mods = {
-    [cls.readonly]: readOnly,
+    [cls.readonly]: readonly,
   }
 
   const [isFocused, setIsFocused] = useState(false)
   const [caretPosition, setCaretPosition] = useState(0)
   const ref = useRef<HTMLInputElement>(null)
-  const isaretVisible = isFocused && !readOnly
+  const isaretVisible = isFocused && !readonly
 
   const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     onChange?.(e.target.value)
@@ -63,7 +63,7 @@ export const Input: FC<Input> = memo((props: Input) => {
           onBlur={onBlure}
           onFocus={onFocus}
           onSelect={onSelect}
-          readOnly={readOnly}
+          readOnly={readonly}
           {...otherProps}
         />
         {isaretVisible && <span className={cls.caret} style={{ left: `${caretPosition * 9}px` }} />}
