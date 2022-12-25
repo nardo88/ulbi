@@ -1,6 +1,6 @@
 export { ProfileCard } from './ui/ProfileCard/ProfileCard'
 
-export { Profile, ProfileSchema } from './model/types/profile'
+export { Profile, ProfileSchema, ValidateProfileError } from './model/types/profile'
 
 export { profileActions, profileReducer } from './model/slice/profileSlice'
 
@@ -12,3 +12,4 @@ export { getProfileIsloading } from './model/selectors/getProfileIsloading/getPr
 export { getProfileError } from './model/selectors/getProfileError/getProfileError'
 export { getProfileReadonly } from './model/selectors/getProfileReadonly/getProfileReadonly'
 export { getProfileForm } from './model/selectors/getProfileForm/getProfileForm'
+export { getValidateProfileErrors } from './model/selectors/getValidateProfileErrors/getValidateProfileErrors'

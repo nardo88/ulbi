@@ -13,8 +13,12 @@ import {
   profileActions,
   ProfileCard,
   profileReducer,
+  getValidateProfileErrors,
+  ValidateProfileError,
 } from 'entities/Profile'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
+import { Text, TextTheme } from 'shared/ui/Text/Text'
+import { useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
 import { Currency } from 'entities/Currency'
 import { Country } from 'entities/Country'
@@ -34,6 +38,16 @@ const ProfilePage: FC<ProfilePage> = ({ className }) => {
   const isLoading = useSelector(getProfileIsloading)
   const error = useSelector(getProfileError)
   const readonly = useSelector(getProfileReadonly)
+  const validateErrors = useSelector(getValidateProfileErrors)
+  const { t } = useTranslation('profile')
+
+  const validateErrorTranslate = {
+    [ValidateProfileError.INCORRECT_AGE]: t('Некорректный возраст'),
+    [ValidateProfileError.INCORRECT_COUNTRY]: t('Некорректный регион'),
+    [ValidateProfileError.INCORRECT_USER_DATA]: t('Имя или фамилия обязательны'),
+    [ValidateProfileError.NO_DATA]: t('Данные не указаны'),
+    [ValidateProfileError.SERVER_ERROR]: t('Серверная ошибка при сохранении'),
+  }
 
   useEffect(() => {
     dispatch(fetchProfileData())
@@ -95,6 +109,10 @@ const ProfilePage: FC<ProfilePage> = ({ className }) => {
     <DinamicModuleLoader reducers={redusers} removeAfterUnmount>
       <div className={classNames('', {}, [className])}>
         <ProfilePageHeader />
+        {validateErrors?.length &&
+          validateErrors.map((err) => (
+            <Text key={err} theme={TextTheme.ERROR} text={validateErrorTranslate[err]} />
+          ))}
         <ProfileCard
           data={formData}
           isLoading={isLoading}
