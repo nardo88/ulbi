@@ -3,12 +3,14 @@ import { Navbar } from 'widgets/Navbar'
 import { Sidebar } from 'widgets/Sidebar'
 import { Suspense, useEffect } from 'react'
 import { PageLoader } from 'shared/ui/PageLoader/PageLoader'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { userActions } from 'entities/User/model/slice/userSlice'
+import { getUserInited } from 'entities/User'
 import { AppRouter } from './providers/router'
 
 function App() {
   const dispatch = useDispatch()
+  const inited = useSelector(getUserInited)
   useEffect(() => {
     dispatch(userActions.initAuthData())
   }, [dispatch])
@@ -19,7 +21,7 @@ function App() {
 
         <div className="content-page">
           <Sidebar />
-          <AppRouter />
+          {inited && <AppRouter />}
         </div>
       </Suspense>
     </div>
