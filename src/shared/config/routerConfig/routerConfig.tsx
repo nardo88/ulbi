@@ -1,4 +1,6 @@
 import { AboutPage } from 'pages/AboutPage'
+import { ArticleDetailsPage } from 'pages/ArticleDetailsPage'
+import { ArticlesPages } from 'pages/ArticlesPages'
 import { MainPage } from 'pages/MainPage'
 import { NotFoundPage } from 'pages/NotFoundPage'
 import ProfilePage from 'pages/ProfilePage/ui/ProfilePage'
@@ -12,6 +14,8 @@ export enum AppRoutes {
   MAIN = 'main',
   ABOUT = 'about',
   PROFILE = 'profile',
+  ARTICLES = 'articles',
+  ARTICLE_DETAILS = 'article_details',
   // last
   NOT_FOUND = 'not_found',
 }
@@ -20,12 +24,13 @@ export const RoutePath: Record<AppRoutes, string> = {
   [AppRoutes.MAIN]: '/',
   [AppRoutes.ABOUT]: '/about',
   [AppRoutes.PROFILE]: '/profile',
+  [AppRoutes.ARTICLES]: '/articles',
+  [AppRoutes.ARTICLE_DETAILS]: '/articles/',
 
   // last
   [AppRoutes.NOT_FOUND]: '*',
 }
 
-// RouteProps - специальный тип из react-router-dom который описывает пропсы компонента Route
 export const routerConfig: Record<AppRoutes, AppRoutesProps> = {
   [AppRoutes.MAIN]: {
     path: RoutePath.main,
@@ -38,6 +43,16 @@ export const routerConfig: Record<AppRoutes, AppRoutesProps> = {
   [AppRoutes.PROFILE]: {
     path: RoutePath.profile,
     element: <ProfilePage />,
+    authOnly: true,
+  },
+  [AppRoutes.ARTICLES]: {
+    path: RoutePath.articles,
+    element: <ArticlesPages />,
+    authOnly: true,
+  },
+  [AppRoutes.ARTICLE_DETAILS]: {
+    path: `${RoutePath.article_details}:id`,
+    element: <ArticleDetailsPage />,
     authOnly: true,
   },
 
