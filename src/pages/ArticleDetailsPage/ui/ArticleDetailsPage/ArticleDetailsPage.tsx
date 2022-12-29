@@ -1,13 +1,23 @@
+import { ArticleDetails } from 'entities/Article'
 import { classNames } from 'helpers/classNames/classNames'
 import { FC } from 'react'
 import { useTranslation } from 'react-i18next'
-import cls from './ArticleDetailsPage.module.scss'
+import { useParams } from 'react-router-dom'
 
 interface ArticleDetailsPage {}
 
 const ArticleDetailsPage: FC<ArticleDetailsPage> = () => {
   const { t } = useTranslation('article')
-  return <div className={classNames('', {}, [])}>ArticleDetailsPage!!!</div>
+  const { id } = useParams()
+
+  if (!id) {
+    return <div className={classNames('', {}, [])}>{t('Статья не найдена')}</div>
+  }
+  return (
+    <div className={classNames('', {}, [])}>
+      <ArticleDetails id={id} />
+    </div>
+  )
 }
 
 export default ArticleDetailsPage
