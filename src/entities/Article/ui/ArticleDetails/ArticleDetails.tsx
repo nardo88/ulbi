@@ -7,6 +7,7 @@ import {
   ReducerList,
 } from 'shared/lib/components/DinamicModuleLoader/DinamicModuleLoader'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
+import { Skeleton } from 'shared/ui/Skeleton/Skeleton'
 import { Text, TextAlign, TextTheme } from 'shared/ui/Text/Text'
 import {
   getArticleDetailsData,
@@ -30,7 +31,8 @@ const reducersList: ReducerList = {
 export const ArticleDetails: FC<ArticleDetails> = memo(({ id }) => {
   const { t } = useTranslation()
   const dispatch = useAppDispatch()
-  const isLoading = useSelector(getArticleDetailsIsloading)
+  const isLoading = true
+  // const isLoading = useSelector(getArticleDetailsIsloading)
   const error = useSelector(getArticleDetailsError)
   const data = useSelector(getArticleDetailsData)
 
@@ -41,7 +43,15 @@ export const ArticleDetails: FC<ArticleDetails> = memo(({ id }) => {
   let content
 
   if (isLoading) {
-    content = <div>Loading...</div>
+    content = (
+      <div>
+        <Skeleton className={cls.avatar} width={200} height={200} border="50%" />
+        <Skeleton className={cls.title} width={300} height={32} />
+        <Skeleton className={cls.skeleton} width={600} height={24} />
+        <Skeleton className={cls.skeleton} width="100%" height={200} />
+        <Skeleton className={cls.skeleton} width="100%" height={200} />
+      </div>
+    )
   } else if (error) {
     content = (
       <div>
