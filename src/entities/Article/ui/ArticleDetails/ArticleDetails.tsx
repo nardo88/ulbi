@@ -1,5 +1,5 @@
 import { classNames } from 'helpers/classNames/classNames'
-import { FC, memo, useEffect } from 'react'
+import { FC, memo, useCallback, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
 import {
@@ -7,8 +7,12 @@ import {
   ReducerList,
 } from 'shared/lib/components/DinamicModuleLoader/DinamicModuleLoader'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
+import { Avatar } from 'shared/ui/Avatar/Avatar'
 import { Skeleton } from 'shared/ui/Skeleton/Skeleton'
-import { Text, TextAlign, TextTheme } from 'shared/ui/Text/Text'
+import { Text, TextAlign, TextSize } from 'shared/ui/Text/Text'
+import EyeIcon from 'shared/assets/icons/view.svg'
+import CalendarIcon from 'shared/assets/icons/calendar.svg'
+import { Icon } from 'shared/ui/Icon/Icon'
 import {
   getArticleDetailsData,
   getArticleDetailsError,
@@ -16,8 +20,12 @@ import {
 } from '../../model/selectors/articleDetails'
 import { fetchArticleById } from '../../model/services/fetchArticleById/fetchArticleById'
 import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice'
+import { ArticleBlock, ArticleBlockType } from '../../model/types/article'
 
 import cls from './ArticleDetails.module.scss'
+import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent'
+import { ArticleImageBlockComponent } from '../ArticleImageBlockComponent/ArticleImageBlockComponent'
+import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent'
 
 interface ArticleDetails {
   className?: string
@@ -31,10 +39,22 @@ const reducersList: ReducerList = {
 export const ArticleDetails: FC<ArticleDetails> = memo(({ id }) => {
   const { t } = useTranslation()
   const dispatch = useAppDispatch()
-  const isLoading = true
-  // const isLoading = useSelector(getArticleDetailsIsloading)
+  const isLoading = useSelector(getArticleDetailsIsloading)
   const error = useSelector(getArticleDetailsError)
-  const data = useSelector(getArticleDetailsData)
+  const article = useSelector(getArticleDetailsData)
+
+  const renderBlock = useCallback((block: ArticleBlock) => {
+    switch (block.type) {
+      case ArticleBlockType.CODE:
+        return <ArticleCodeBlockComponent />
+      case ArticleBlockType.IMAGE:
+        return <ArticleImageBlockComponent />
+      case ArticleBlockType.TEXT:
+        return <ArticleTextBlockComponent />
+      default:
+        return null
+    }
+  }, [])
 
   useEffect(() => {
     dispatch(fetchArticleById(id))
@@ -44,13 +64,13 @@ export const ArticleDetails: FC<ArticleDetails> = memo(({ id }) => {
 
   if (isLoading) {
     content = (
-      <div>
+      <>
         <Skeleton className={cls.avatar} width={200} height={200} border="50%" />
         <Skeleton className={cls.title} width={300} height={32} />
         <Skeleton className={cls.skeleton} width={600} height={24} />
         <Skeleton className={cls.skeleton} width="100%" height={200} />
         <Skeleton className={cls.skeleton} width="100%" height={200} />
-      </div>
+      </>
     )
   } else if (error) {
     content = (
@@ -59,7 +79,27 @@ export const ArticleDetails: FC<ArticleDetails> = memo(({ id }) => {
       </div>
     )
   } else {
-    content = <div>Data</div>
+    content = (
+      <>
+        <div className={cls.avatarWrapper}>
+          <Avatar size={200} src={article?.img} className={cls.avatar} />
+        </div>
+        <Text
+          title={article?.title}
+          text={article?.subtitle}
+          className={cls.title}
+          size={TextSize.L}
+        />
+        <div className={cls.articleInfo}>
+          <Icon Svg={EyeIcon} className={cls.icon} />
+          <Text text={String(article?.views)} />
+        </div>
+        <div className={cls.articleInfo}>
+          <Icon Svg={CalendarIcon} className={cls.icon} />
+          <Text text={article?.createdAt} />
+        </div>
+      </>
+    )
   }
 
   return (

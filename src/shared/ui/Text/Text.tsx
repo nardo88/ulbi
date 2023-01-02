@@ -13,12 +13,18 @@ export enum TextAlign {
   CENTER = 'center',
 }
 
+export enum TextSize {
+  M = 'size_m',
+  L = 'size_l',
+}
+
 interface IText {
   className?: string
   title?: string
   text?: string
   theme?: TextTheme
   align?: TextAlign
+  size?: TextSize
 }
 
 export const Text: FC<IText> = ({
@@ -27,10 +33,12 @@ export const Text: FC<IText> = ({
   className,
   theme = TextTheme.PRIMARY,
   align = TextAlign.LEFT,
+  size = TextSize.M,
 }) => {
   const mods = {
     [cls[theme]]: true,
     [cls[align]]: true,
+    [cls[size]]: true,
   }
   return (
     <div className={classNames(cls.Text, mods, [className])}>
