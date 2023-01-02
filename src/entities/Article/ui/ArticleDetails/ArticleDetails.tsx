@@ -43,16 +43,17 @@ export const ArticleDetails: FC<ArticleDetails> = memo(({ id }) => {
   const error = useSelector(getArticleDetailsError)
   const article = useSelector(getArticleDetailsData)
 
+  // prettier-ignore
   const renderBlock = useCallback((block: ArticleBlock) => {
     switch (block.type) {
-      case ArticleBlockType.CODE:
-        return <ArticleCodeBlockComponent />
-      case ArticleBlockType.IMAGE:
-        return <ArticleImageBlockComponent />
-      case ArticleBlockType.TEXT:
-        return <ArticleTextBlockComponent />
-      default:
-        return null
+    case ArticleBlockType.CODE:
+      return <ArticleCodeBlockComponent className={cls.block} block={block} />
+    case ArticleBlockType.IMAGE:
+      return <ArticleImageBlockComponent className={cls.block} block={block} />
+    case ArticleBlockType.TEXT:
+      return <ArticleTextBlockComponent className={cls.block} block={block} />
+    default:
+      return null
     }
   }, [])
 
@@ -98,6 +99,7 @@ export const ArticleDetails: FC<ArticleDetails> = memo(({ id }) => {
           <Icon Svg={CalendarIcon} className={cls.icon} />
           <Text text={article?.createdAt} />
         </div>
+        {article?.blocks.map(renderBlock)}
       </>
     )
   }

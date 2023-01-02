@@ -1,5 +1,9 @@
 .link {
     color: var(--primary-color);
+
+    &:hover {
+        opacity: .7;
+    }
 }
 
 .primary {
