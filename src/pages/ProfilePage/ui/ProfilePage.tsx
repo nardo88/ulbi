@@ -22,6 +22,7 @@ import { useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
 import { Currency } from 'entities/Currency'
 import { Country } from 'entities/Country'
+import { useParams } from 'react-router-dom'
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader'
 
 interface ProfilePage {
@@ -40,6 +41,7 @@ const ProfilePage: FC<ProfilePage> = ({ className }) => {
   const readonly = useSelector(getProfileReadonly)
   const validateErrors = useSelector(getValidateProfileErrors)
   const { t } = useTranslation('profile')
+  const { id } = useParams<{ id: string }>()
 
   const validateErrorTranslate = {
     [ValidateProfileError.INCORRECT_AGE]: t('Некорректный возраст'),
@@ -50,8 +52,10 @@ const ProfilePage: FC<ProfilePage> = ({ className }) => {
   }
 
   useEffect(() => {
-    dispatch(fetchProfileData())
-  }, [dispatch])
+    if (id) {
+      dispatch(fetchProfileData(id))
+    }
+  }, [dispatch, id])
 
   const onChangeFirstName = useCallback(
     (value?: string) => {

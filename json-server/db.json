@@ -118,14 +118,28 @@
       "avatar": "https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg"
     }
   ],
-  "profile": {
-    "first": "Максим",
-    "lastname": "Кузнецов",
-    "age": 34,
-    "currency": "RUB",
-    "country": "Russia",
-    "city": "Sergiev Posad",
-    "username": "admin",
-    "avatar": "https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg"
-  }
+  "profile": [
+    {
+      "id": "1",
+      "first": "Максим",
+      "lastname": "Кузнецов",
+      "age": 34,
+      "currency": "RUB",
+      "country": "Russia",
+      "city": "Sergiev Posad",
+      "username": "admin",
+      "avatar": "https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg"
+    },
+    {
+      "id": "2",
+      "first": "Полина",
+      "lastname": "Кузнецова",
+      "age": 25,
+      "currency": "RUB",
+      "country": "Russia",
+      "city": "Moskow",
+      "username": "user",
+      "avatar": "https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg"
+    }
+  ]
 }

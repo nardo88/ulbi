@@ -11,6 +11,7 @@ import {
 } from 'shared/lib/components/DinamicModuleLoader/DinamicModuleLoader'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
 import { Text } from 'shared/ui/Text/Text'
+import AddCommentForm from 'features/AddCommentForm/ui/AddCommentForm/AddCommentForm'
 import {
   articleDetailsCommentsReducer,
   getArticleComments,
@@ -44,6 +45,7 @@ const ArticleDetailsPage: FC<ArticleDetailsPage> = () => {
       <div className={classNames('', {}, [])}>
         <ArticleDetails id={id} />
         <Text title={t('Комментарии')} className={cls.commentTitle} />
+        <AddCommentForm />
         <CommentList isLoading={isLoading} comments={comments} />
       </div>
     </DinamicModuleLoader>
