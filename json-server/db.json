@@ -132,6 +132,12 @@
       "text": "Привет мир",
       "userId": "1",
       "id": "ka1qc6V"
+    },
+    {
+      "articleId": "1",
+      "text": "привет",
+      "userId": "2",
+      "id": "POXBrfH"
     }
   ],
   "users": [
@@ -147,7 +153,7 @@
       "username": "user",
       "password": "123",
       "role": "USER",
-      "avatar": "https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg"
+      "avatar": "https://kursosliv.com/wp-content/uploads/2022/07/udemy-sovremennyj-javascript-s-nulya-na-realnyh-proektah-denis-meshheryakov_62db46f3becee.png"
     }
   ],
   "profile": [
@@ -166,12 +172,12 @@
       "id": "2",
       "first": "Полина",
       "lastname": "Кузнецова",
-      "age": 25,
+      "age": 21,
       "currency": "RUB",
       "country": "Russia",
       "city": "Moskow",
       "username": "user",
-      "avatar": "https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg"
+      "avatar": "https://kursosliv.com/wp-content/uploads/2022/07/udemy-sovremennyj-javascript-s-nulya-na-realnyh-proektah-denis-meshheryakov_62db46f3becee.png"
     }
   ]
 }
