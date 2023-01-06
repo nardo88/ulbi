@@ -3,21 +3,25 @@ import { FC, memo, useMemo, useState } from 'react'
 import { Button, ButtonSize, ButtonTheme } from 'shared/ui/Button/Button'
 import { LangSwitcher } from 'shared/ui/LangSwitcher/LangSwitcher'
 import { ThemeSwitcher } from 'shared/ui/ThemeSwitcher'
+import { useSelector } from 'react-redux'
 import cls from './Sidebat.module.scss'
-import { SidebarItemList, SidebarItemType } from '../../model/items'
 import { SidebarItem } from '../SidebarItem/SidebarItem'
+import { SidebarItemType } from '../../model/types/sidebar'
+import { getSidebarItems } from '../../model/selectors/getSidebarItems'
 
 interface Sidebat {}
 
 export const Sidebar: FC<Sidebat> = memo(() => {
   const [collapsed, setCollapsed] = useState<boolean>(false)
+  const sidebarItemList = useSelector(getSidebarItems)
+
   const onToggle = () => setCollapsed(!collapsed)
 
   const itemList = useMemo(() => {
-    return SidebarItemList.map((item: SidebarItemType) => (
+    return sidebarItemList.map((item: SidebarItemType) => (
       <SidebarItem key={item.path} item={item} collapsed={collapsed} />
     ))
-  }, [collapsed])
+  }, [collapsed, sidebarItemList])
   return (
     <div
       data-testid="sidebar"
