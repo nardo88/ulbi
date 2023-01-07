@@ -1,0 +1,65 @@
+.BIG {}
+
+.SMALL {
+    width: 230px;
+    transition: .2s;
+    cursor: pointer;
+
+    .date {
+        position: absolute;
+        right: 0;
+        top: 0;
+        display: none;
+    }
+
+    &:hover {
+        opacity: .8;
+        transform: scale(1.02);
+
+        .date {
+            display: block;
+        }
+    }
+
+    .imageWrapper {
+        width: 200px;
+        height: 200px;
+        position: relative;
+    }
+
+    .image {
+        width: 200px;
+        height: 200px;
+    }
+
+
+
+    .infoWrapper {
+        display: flex;
+        align-items: center;
+        margin-top: 8px;
+    }
+
+    .types p {
+        width: 115px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .view {
+        margin-left: auto;
+        margin-right: 8px;
+    }
+
+    .title {
+        margin-top: 8px;
+    }
+
+    .title p {
+        width: 200px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}
