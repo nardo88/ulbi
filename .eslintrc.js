@@ -68,6 +68,7 @@ module.exports = {
     'react/prop-types': 'off',
     'implicit-arrow-linebreak': 'off',
     'quote-props': 'off',
+    'react/no-array-index-key': 'off',
   },
   globals: {
     __IS_DEV__: true,
