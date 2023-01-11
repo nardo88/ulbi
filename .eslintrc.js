@@ -26,7 +26,7 @@ module.exports = {
     // отключаем предпочтение дефолтного экспорта
     'import/prefer-default-export': 'off',
     // не допустимы console.log()
-    'no-console': 'warn',
+    'no-console': 'off',
     // отключаем проверку на указание дефолтного значениея у необязательного пропса
     'react/require-default-props': 'off',
     // отключаем обязательный импорт React

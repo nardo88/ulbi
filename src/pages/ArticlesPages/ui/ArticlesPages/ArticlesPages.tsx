@@ -7,10 +7,12 @@ import {
   ReducerList,
 } from 'shared/lib/components/DinamicModuleLoader/DinamicModuleLoader'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
+import { Page } from 'shared/ui/Page/Page'
 import { fetchArticlesList } from '../../model/services/fetchArticlesList'
 import {
   getArticlePageError,
   getArticlePageIsloading,
+  getArticlePageNumber,
   getArticlePageView,
 } from '../../model/selectors/articlePageSelectors'
 import {
@@ -31,6 +33,7 @@ const ArticlesPages: FC<ArticlesPages> = () => {
   const isLoading = useSelector(getArticlePageIsloading)
   const error = useSelector(getArticlePageError)
   const view = useSelector(getArticlePageView)
+  const page = useSelector(getArticlePageNumber)
 
   const onViewChange = useCallback(
     (view: ArticleView) => {
@@ -40,16 +43,20 @@ const ArticlesPages: FC<ArticlesPages> = () => {
   )
 
   useEffect(() => {
-    dispatch(fetchArticlesList())
     dispatch(articlePageActions.initialState())
-  }, [dispatch])
+    dispatch(
+      fetchArticlesList({
+        page: 1,
+      })
+    )
+  }, [dispatch, page])
 
   return (
     <DinamicModuleLoader reducers={reducers}>
-      <div className={classNames('', {}, [])}>
+      <Page className={classNames('', {}, [])}>
         <ArticleViewSelector view={view} onViewClick={onViewChange} />
         <ArticleList view={view} isLoading={isLoading} articles={articles} />
-      </div>
+      </Page>
     </DinamicModuleLoader>
   )
 }

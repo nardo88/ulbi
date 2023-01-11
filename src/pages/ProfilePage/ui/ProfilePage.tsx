@@ -23,6 +23,7 @@ import { useSelector } from 'react-redux'
 import { Currency } from 'entities/Currency'
 import { Country } from 'entities/Country'
 import { useParams } from 'react-router-dom'
+import { Page } from 'shared/ui/Page/Page'
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader'
 
 interface ProfilePage {
@@ -111,7 +112,7 @@ const ProfilePage: FC<ProfilePage> = ({ className }) => {
   )
   return (
     <DinamicModuleLoader reducers={redusers} removeAfterUnmount>
-      <div className={classNames('', {}, [className])}>
+      <Page className={classNames('', {}, [className])}>
         <ProfilePageHeader />
         {validateErrors?.length &&
           validateErrors.map((err) => (
@@ -131,7 +132,7 @@ const ProfilePage: FC<ProfilePage> = ({ className }) => {
           onChangeCurrerncy={onChangeCurrerncy}
           onChangeCountry={onChangeCountry}
         />
-      </div>
+      </Page>
     </DinamicModuleLoader>
   )
 }

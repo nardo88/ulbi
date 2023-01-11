@@ -12,6 +12,7 @@ import {
 import { Text } from 'shared/ui/Text/Text'
 import { Button } from 'shared/ui/Button/Button'
 import { RoutePath } from 'shared/config/routerConfig/routerConfig'
+import { Page } from 'shared/ui/Page/Page'
 import AddCommentForm from 'features/AddCommentForm/ui/AddCommentForm/AddCommentForm'
 import {
   articleDetailsCommentsReducer,
@@ -56,13 +57,13 @@ const ArticleDetailsPage: FC<ArticleDetailsPage> = () => {
   }
   return (
     <DinamicModuleLoader reducers={reducers} removeAfterUnmount>
-      <div className={classNames('', {}, [])}>
+      <Page className={classNames('', {}, [])}>
         <Button onClick={onBackToList}>{t('Назад к списку')}</Button>
         <ArticleDetails id={id} />
         <Text title={t('Комментарии')} className={cls.commentTitle} />
         <AddCommentForm onSendComment={onSendComment} />
         <CommentList isLoading={isLoading} comments={comments} />
-      </div>
+      </Page>
     </DinamicModuleLoader>
   )
 }
