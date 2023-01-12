@@ -8,11 +8,11 @@ import {
 } from 'shared/lib/components/DinamicModuleLoader/DinamicModuleLoader'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
 import { Page } from 'shared/ui/Page/Page'
+import { fetchNextArticlePage } from '../../model/services/fetchNextArticlePage'
 import { fetchArticlesList } from '../../model/services/fetchArticlesList'
 import {
   getArticlePageError,
   getArticlePageIsloading,
-  getArticlePageNumber,
   getArticlePageView,
 } from '../../model/selectors/articlePageSelectors'
 import {
@@ -33,7 +33,6 @@ const ArticlesPages: FC<ArticlesPages> = () => {
   const isLoading = useSelector(getArticlePageIsloading)
   const error = useSelector(getArticlePageError)
   const view = useSelector(getArticlePageView)
-  const page = useSelector(getArticlePageNumber)
 
   const onViewChange = useCallback(
     (view: ArticleView) => {
@@ -42,6 +41,10 @@ const ArticlesPages: FC<ArticlesPages> = () => {
     [dispatch]
   )
 
+  const onLoadNextPart = useCallback(() => {
+    dispatch(fetchNextArticlePage())
+  }, [dispatch])
+
   useEffect(() => {
     dispatch(articlePageActions.initialState())
     dispatch(
@@ -49,11 +52,11 @@ const ArticlesPages: FC<ArticlesPages> = () => {
         page: 1,
       })
     )
-  }, [dispatch, page])
+  }, [dispatch])
 
   return (
     <DinamicModuleLoader reducers={reducers}>
-      <Page className={classNames('', {}, [])}>
+      <Page onScrollEnd={onLoadNextPart} className={classNames('', {}, [])}>
         <ArticleViewSelector view={view} onViewClick={onViewChange} />
         <ArticleList view={view} isLoading={isLoading} articles={articles} />
       </Page>

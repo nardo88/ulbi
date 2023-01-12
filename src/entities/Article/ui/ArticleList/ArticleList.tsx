@@ -24,16 +24,10 @@ export const ArticleList: FC<ArticleList> = (props) => {
     return <ArticleListItem article={article} view={view} key={article.id} className={cls.card} />
   }
 
-  if (isLoading) {
-    return (
-      <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
-        {getSkeletons(view)}
-      </div>
-    )
-  }
   return (
     <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
       {articles?.length > 0 ? articles?.map(renderArticle) : null}
+      {isLoading && getSkeletons(view)}
     </div>
   )
 }

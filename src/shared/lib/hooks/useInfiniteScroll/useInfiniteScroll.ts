@@ -1,9 +1,8 @@
-import { MutableRefObject, useEffect, useRef } from 'react'
-import { EntryOptionPlugin } from 'webpack'
+import { MutableRefObject, useEffect } from 'react'
 
 export interface UseInfiniteScrollOption {
   // callback который будет вызван по тригеру
-  callback: () => void
+  callback?: () => void
   // обычный реактовский реф который будет тригерить событие (при появлении)
   triggerRef: MutableRefObject<HTMLElement>
   // wrapper внутри которого будет скролл
@@ -16,29 +15,33 @@ export const useInfiniteScroll = ({
   triggerRef,
 }: UseInfiniteScrollOption) => {
   useEffect(() => {
-    const options = {
-      // root - элемент который скролим
-      root: wrapperRef.current,
-      rootMargin: '0px',
-      threshold: 1.0,
-    }
-    // создаем подписку. Первый аргумент callback (функция будет выполнена тогда когда на экране появится элемент за которым мы следим). Этот callback принимает в свою очередь массив. Первый элемент массива - это entries - массив элементов за которыми мы наблюдаем. Так как мы будем наблюдать всего за одним элементом, мы можем с помощью диструктуризации вытащить его
-    const observer = new IntersectionObserver(([entrie]) => {
-      if (entrie.isIntersecting) {
-        // выполняем callback только когда элемент появился
-        console.log('Intersected')
+    let observer: IntersectionObserver | null = null
+    const wrapperElement = wrapperRef.current
+    const triggerElement = triggerRef.current
+    if (callback) {
+      const options = {
+        // root - элемент который скролим
+        root: wrapperElement,
+        rootMargin: '0px',
+        threshold: 1.0,
       }
-    }, options)
+      // создаем подписку. Первый аргумент callback (функция будет выполнена тогда когда на экране появится элемент за которым мы следим). Этот callback принимает в свою очередь массив. Первый элемент массива - это entries - массив элементов за которыми мы наблюдаем. Так как мы будем наблюдать всего за одним элементом, мы можем с помощью диструктуризации вытащить его
+      observer = new IntersectionObserver(([entrie]) => {
+        if (entrie.isIntersecting) {
+          // выполняем callback только когда элемент появился
+          callback()
+        }
+      }, options)
 
-    // у самого observer необходимо вызвать метод observe и передать ему ссылку на элемент, на появление которого мы подписываемся
-    observer.observe(triggerRef.current)
-
+      // у самого observer необходимо вызвать метод observe и передать ему ссылку на элемент, на появление которого мы подписываемся
+      observer.observe(triggerElement)
+    }
     // при демонтировании компонента отключаем подписку
     return () => {
-      if (observer) {
+      if (observer && triggerElement) {
         // eslint-disable-next-line
-        observer.unobserve(triggerRef.current)
+        observer.unobserve(triggerElement)
       }
     }
-  }, [wrapperRef, triggerRef])
+  }, [wrapperRef, triggerRef, callback])
 }
