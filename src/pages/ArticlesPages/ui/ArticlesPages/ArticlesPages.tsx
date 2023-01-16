@@ -9,17 +9,18 @@ import {
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
 import { Page } from 'shared/ui/Page/Page'
 import { fetchNextArticlePage } from '../../model/services/fetchNextArticlePage'
-import { fetchArticlesList } from '../../model/services/fetchArticlesList'
 import {
   getArticlePageError,
   getArticlePageIsloading,
   getArticlePageView,
+  getArticlePageInited,
 } from '../../model/selectors/articlePageSelectors'
 import {
   articlePageActions,
   articlePageReducer,
   getArticles,
 } from '../../model/slices/articlePageSlice'
+import { initArticlePage } from '../../model/services/initArticlePage'
 
 interface ArticlesPages {}
 
@@ -33,6 +34,7 @@ const ArticlesPages: FC<ArticlesPages> = () => {
   const isLoading = useSelector(getArticlePageIsloading)
   const error = useSelector(getArticlePageError)
   const view = useSelector(getArticlePageView)
+  const inited = useSelector(getArticlePageInited)
 
   const onViewChange = useCallback(
     (view: ArticleView) => {
@@ -46,13 +48,8 @@ const ArticlesPages: FC<ArticlesPages> = () => {
   }, [dispatch])
 
   useEffect(() => {
-    dispatch(articlePageActions.initialState())
-    dispatch(
-      fetchArticlesList({
-        page: 1,
-      })
-    )
-  }, [dispatch])
+    dispatch(initArticlePage())
+  }, [dispatch, inited])
 
   return (
     <DinamicModuleLoader reducers={reducers}>

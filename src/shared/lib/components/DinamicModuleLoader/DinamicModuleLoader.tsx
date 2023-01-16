@@ -19,12 +19,16 @@ export const DinamicModuleLoader: FC<DinamicModuleLoader> = ({
   removeAfterUnmount = true,
 }) => {
   const store = useStore() as ReduxStoreWithManager
+  const mounterReducers = store.reducerManager.getMountedReducers()
   const dispatch = useDispatch()
   useEffect(() => {
     Object.entries(reducers).forEach(([name, reducer]) => {
-      // при монтировании добавляем reducer
-      store.reducerManager.add(name as StateSchemaKey, reducer)
-      dispatch({ type: `@INIT ${name} REDUCER` })
+      const mounted = mounterReducers[name as StateSchemaKey]
+      if (!mounted) {
+        // при монтировании добавляем reducer
+        store.reducerManager.add(name as StateSchemaKey, reducer)
+        dispatch({ type: `@INIT ${name} REDUCER` })
+      }
     })
 
     // при демонтаже удаляем его из store
