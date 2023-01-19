@@ -20,7 +20,9 @@
       "views": 1022,
       "userId": "1",
       "createdAt": "26.02.2022",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -90,7 +92,9 @@
       "views": 3342,
       "userId": "1",
       "createdAt": "28.02.2022",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -160,7 +164,9 @@
       "views": 332,
       "userId": "1",
       "createdAt": "12.03.2022",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -196,7 +202,9 @@
       "views": 332,
       "userId": "1",
       "createdAt": "12.03.2022",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -232,7 +240,9 @@
       "views": 332,
       "userId": "1",
       "createdAt": "12.03.2022",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -268,7 +278,9 @@
       "views": 332,
       "userId": "1",
       "createdAt": "12.03.2022",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -304,7 +316,9 @@
       "views": 332,
       "userId": "1",
       "createdAt": "12.03.2022",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -340,7 +354,9 @@
       "views": 332,
       "userId": "1",
       "createdAt": "12.03.2022",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -376,7 +392,9 @@
       "views": 332,
       "userId": "1",
       "createdAt": "12.03.2022",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -412,7 +430,9 @@
       "views": 332,
       "userId": "1",
       "createdAt": "12.03.2022",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -448,7 +468,9 @@
       "views": 332,
       "userId": "1",
       "createdAt": "12.03.2022",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -484,7 +506,9 @@
       "views": 332,
       "userId": "1",
       "createdAt": "12.03.2022",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -520,7 +544,9 @@
       "views": 332,
       "userId": "1",
       "createdAt": "12.03.2022",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -556,7 +582,9 @@
       "views": 332,
       "userId": "1",
       "createdAt": "12.03.2022",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -592,7 +620,9 @@
       "views": 332,
       "userId": "1",
       "createdAt": "12.03.2022",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -628,7 +658,9 @@
       "views": 332,
       "userId": "1",
       "createdAt": "12.03.2022",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -711,6 +743,12 @@
       "text": "привет",
       "userId": "2",
       "id": "POXBrfH"
+    },
+    {
+      "articleId": "1",
+      "text": "mmm",
+      "userId": "2",
+      "id": "BhXMfhx"
     }
   ],
   "users": [

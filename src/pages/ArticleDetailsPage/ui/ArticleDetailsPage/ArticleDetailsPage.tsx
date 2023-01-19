@@ -12,7 +12,7 @@ import {
 import { Text } from 'shared/ui/Text/Text'
 import { Button } from 'shared/ui/Button/Button'
 import { RoutePath } from 'shared/config/routerConfig/routerConfig'
-import { Page } from 'shared/ui/Page/Page'
+import { Page } from 'widgets/Page/Page'
 import AddCommentForm from 'features/AddCommentForm/ui/AddCommentForm/AddCommentForm'
 import {
   articleDetailsCommentsReducer,

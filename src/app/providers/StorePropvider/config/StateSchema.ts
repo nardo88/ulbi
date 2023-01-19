@@ -15,10 +15,12 @@ import { ArticleDetailsSchema } from 'entities/Article'
 import { ArticleDetailsCommentsSchema } from 'pages/ArticleDetailsPage'
 import { AddCommentFormSchema } from 'features/AddCommentForm'
 import { ArticlePageSchema } from 'pages/ArticlesPages'
+import { UISchema } from 'features/UI'
 
 export interface StateSchema {
   counter: CounterSchema
   user: UseSchema
+  ui: UISchema
 
   // асинхронные reducers
   loginForm?: LoginSchema
