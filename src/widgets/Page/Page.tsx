@@ -29,8 +29,10 @@ export const Page: FC<Page> = ({ className, children, onScrollEnd }) => {
   })
 
   useEffect(() => {
-    wrapperRef.current.scrollTop = 1000
-  }, [scrollPosition])
+    // бага. Если в зависимость поставить scrollPosition то при каждом изменении
+    // будет скачек
+    // wrapperRef.current.scrollTop = scrollPosition
+  }, [])
 
   const onScroll = useThrottle((e: UIEvent<HTMLDivElement>) => {
     console.log('scroll')
@@ -44,7 +46,7 @@ export const Page: FC<Page> = ({ className, children, onScrollEnd }) => {
   return (
     <div ref={wrapperRef} className={classNames(cls.Page, {}, [className])} onScroll={onScroll}>
       {children}
-      <div ref={triggerRef} />
+      {onScrollEnd && <div className={cls.trigger} ref={triggerRef} />}
     </div>
   )
 }

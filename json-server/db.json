@@ -17,12 +17,10 @@
       "title": "Javascript news",
       "subtitle": "Что нового в JS за 2022 год?",
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
-      "views": 1022,
+      "views": 2167,
       "userId": "1",
-      "createdAt": "26.02.2022",
-      "type": [
-        "IT"
-      ],
+      "createdAt": "26.05.2022",
+      "type": ["IT"],
       "blocks": [
         {
           "id": "1",
@@ -91,10 +89,8 @@
       "img": "https://i2.imageban.ru/out/2021/05/14/0253a63bc2b60bc6ce474a19513c1e84.png",
       "views": 3342,
       "userId": "1",
-      "createdAt": "28.02.2022",
-      "type": [
-        "IT"
-      ],
+      "createdAt": "12.02.2022",
+      "type": ["SCIENCE"],
       "blocks": [
         {
           "id": "1",
@@ -160,13 +156,11 @@
       "id": "3",
       "title": "TypeScript news",
       "subtitle": "Что нового в TypeScript",
-      "img": "https://miro.medium.com/max/1200/1*lHnNGaEeAwccbD0jbF9DyQ.jpeg",
+      "img": "https://apify-docs.s3.amazonaws.com/master/academy/assets/switching_to_typescript/images/typescript-logo.webp",
       "views": 332,
       "userId": "1",
-      "createdAt": "12.03.2022",
-      "type": [
-        "IT"
-      ],
+      "createdAt": "12.09.2022",
+      "type": ["ECONOMICS"],
       "blocks": [
         {
           "id": "1",
@@ -196,15 +190,13 @@
     },
     {
       "id": "4",
-      "title": "TypeScript news",
-      "subtitle": "Что нового в TypeScript",
-      "img": "https://miro.medium.com/max/1200/1*lHnNGaEeAwccbD0jbF9DyQ.jpeg",
-      "views": 332,
+      "title": "Pyton news",
+      "subtitle": "Что нового в Pyton",
+      "img": "https://office-guru.ru/wp-content/uploads/2021/08/High_resolution_wallpaper_background_ID_77701763881.jpg",
+      "views": 1121,
       "userId": "1",
-      "createdAt": "12.03.2022",
-      "type": [
-        "IT"
-      ],
+      "createdAt": "22.03.2022",
+      "type": ["IT"],
       "blocks": [
         {
           "id": "1",
@@ -234,15 +226,13 @@
     },
     {
       "id": "5",
-      "title": "TypeScript news",
-      "subtitle": "Что нового в TypeScript",
-      "img": "https://miro.medium.com/max/1200/1*lHnNGaEeAwccbD0jbF9DyQ.jpeg",
-      "views": 332,
+      "title": "Redux news",
+      "subtitle": "Что нового в Redux",
+      "img": "https://tech.bedrockstreaming.com/images/posts/react-redux/redux.jpg",
+      "views": 6654,
       "userId": "1",
-      "createdAt": "12.03.2022",
-      "type": [
-        "IT"
-      ],
+      "createdAt": "01.02.2022",
+      "type": ["SCIENCE"],
       "blocks": [
         {
           "id": "1",
@@ -272,15 +262,13 @@
     },
     {
       "id": "6",
-      "title": "TypeScript news",
-      "subtitle": "Что нового в TypeScript",
-      "img": "https://miro.medium.com/max/1200/1*lHnNGaEeAwccbD0jbF9DyQ.jpeg",
-      "views": 332,
+      "title": "NodeJS news",
+      "subtitle": "Что нового в NodeJS",
+      "img": "https://fuzeservers.ru/wp-content/uploads/a/6/d/a6d05477e67baf048d57ff6d15696f56.jpeg",
+      "views": 99087,
       "userId": "1",
-      "createdAt": "12.03.2022",
-      "type": [
-        "IT"
-      ],
+      "createdAt": "10.07.2022",
+      "type": ["ECONOMICS"],
       "blocks": [
         {
           "id": "1",
@@ -310,15 +298,13 @@
     },
     {
       "id": "7",
-      "title": "TypeScript news",
-      "subtitle": "Что нового в TypeScript",
-      "img": "https://miro.medium.com/max/1200/1*lHnNGaEeAwccbD0jbF9DyQ.jpeg",
-      "views": 332,
+      "title": "Linux news",
+      "subtitle": "Что нового в Linux",
+      "img": "https://fuzeservers.ru/wp-content/uploads/b/a/d/badbdff74c9247da2dfc7a0349b3be1a.jpeg",
+      "views": 12342,
       "userId": "1",
-      "createdAt": "12.03.2022",
-      "type": [
-        "IT"
-      ],
+      "createdAt": "18.05.2022",
+      "type": ["IT"],
       "blocks": [
         {
           "id": "1",
@@ -348,15 +334,13 @@
     },
     {
       "id": "8",
-      "title": "TypeScript news",
-      "subtitle": "Что нового в TypeScript",
-      "img": "https://miro.medium.com/max/1200/1*lHnNGaEeAwccbD0jbF9DyQ.jpeg",
-      "views": 332,
+      "title": "Meteor news",
+      "subtitle": "Что нового в Meteor",
+      "img": "https://i.morioh.com/210125/1bc252d6.webp",
+      "views": 12,
       "userId": "1",
-      "createdAt": "12.03.2022",
-      "type": [
-        "IT"
-      ],
+      "createdAt": "01.03.2022",
+      "type": ["SCIENCE"],
       "blocks": [
         {
           "id": "1",
@@ -386,15 +370,13 @@
     },
     {
       "id": "9",
-      "title": "TypeScript news",
-      "subtitle": "Что нового в TypeScript",
-      "img": "https://miro.medium.com/max/1200/1*lHnNGaEeAwccbD0jbF9DyQ.jpeg",
-      "views": 332,
+      "title": "NextJS news",
+      "subtitle": "Что нового в NextJS",
+      "img": "https://res.cloudinary.com/practicaldev/image/fetch/s--Eu1CCBDb--/c_imagga_scale,f_auto,fl_progressive,h_900,q_auto,w_1600/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/ip6asin0wo19bifcmyzy.png",
+      "views": 324324,
       "userId": "1",
-      "createdAt": "12.03.2022",
-      "type": [
-        "IT"
-      ],
+      "createdAt": "10.12.2022",
+      "type": ["ECONOMICS"],
       "blocks": [
         {
           "id": "1",
@@ -424,15 +406,13 @@
     },
     {
       "id": "10",
-      "title": "TypeScript news",
-      "subtitle": "Что нового в TypeScript",
-      "img": "https://miro.medium.com/max/1200/1*lHnNGaEeAwccbD0jbF9DyQ.jpeg",
-      "views": 332,
+      "title": "Vercel news",
+      "subtitle": "Что нового в Vercel",
+      "img": "https://i.ytimg.com/vi/xbttOhUFPIk/maxresdefault.jpg",
+      "views": 1643,
       "userId": "1",
-      "createdAt": "12.03.2022",
-      "type": [
-        "IT"
-      ],
+      "createdAt": "02.07.2022",
+      "type": ["IT"],
       "blocks": [
         {
           "id": "1",
@@ -462,15 +442,13 @@
     },
     {
       "id": "11",
-      "title": "TypeScript news",
-      "subtitle": "Что нового в TypeScript",
-      "img": "https://miro.medium.com/max/1200/1*lHnNGaEeAwccbD0jbF9DyQ.jpeg",
-      "views": 332,
+      "title": "CSS3 news",
+      "subtitle": "Что нового в CSS3",
+      "img": "https://luxe-host.ru/wp-content/uploads/7/5/8/75873b1cf3dda123a905800ca06cb2a5.png",
+      "views": 3424,
       "userId": "1",
-      "createdAt": "12.03.2022",
-      "type": [
-        "IT"
-      ],
+      "createdAt": "22.08.2022",
+      "type": ["SCIENCE"],
       "blocks": [
         {
           "id": "1",
@@ -506,9 +484,7 @@
       "views": 332,
       "userId": "1",
       "createdAt": "12.03.2022",
-      "type": [
-        "IT"
-      ],
+      "type": ["IT"],
       "blocks": [
         {
           "id": "1",
@@ -544,9 +520,7 @@
       "views": 332,
       "userId": "1",
       "createdAt": "12.03.2022",
-      "type": [
-        "IT"
-      ],
+      "type": ["IT"],
       "blocks": [
         {
           "id": "1",
@@ -582,9 +556,7 @@
       "views": 332,
       "userId": "1",
       "createdAt": "12.03.2022",
-      "type": [
-        "IT"
-      ],
+      "type": ["IT"],
       "blocks": [
         {
           "id": "1",
@@ -620,9 +592,7 @@
       "views": 332,
       "userId": "1",
       "createdAt": "12.03.2022",
-      "type": [
-        "IT"
-      ],
+      "type": ["IT"],
       "blocks": [
         {
           "id": "1",
@@ -658,9 +628,7 @@
       "views": 332,
       "userId": "1",
       "createdAt": "12.03.2022",
-      "type": [
-        "IT"
-      ],
+      "type": ["IT"],
       "blocks": [
         {
           "id": "1",
