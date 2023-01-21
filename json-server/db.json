@@ -478,12 +478,12 @@
     },
     {
       "id": "12",
-      "title": "TypeScript news",
-      "subtitle": "Что нового в TypeScript",
-      "img": "https://miro.medium.com/max/1200/1*lHnNGaEeAwccbD0jbF9DyQ.jpeg",
-      "views": 332,
+      "title": "HTML5 news",
+      "subtitle": "Что нового в HTML5",
+      "img": "https://bookflow.ru/wp-content/uploads/2016/03/html5.png",
+      "views": 9872,
       "userId": "1",
-      "createdAt": "12.03.2022",
+      "createdAt": "11.04.2022",
       "type": ["IT"],
       "blocks": [
         {
@@ -514,13 +514,13 @@
     },
     {
       "id": "13",
-      "title": "TypeScript news",
-      "subtitle": "Что нового в TypeScript",
-      "img": "https://miro.medium.com/max/1200/1*lHnNGaEeAwccbD0jbF9DyQ.jpeg",
-      "views": 332,
+      "title": "Websocket news",
+      "subtitle": "Что нового в Websocket",
+      "img": "https://datatex.com/wp-content/uploads/2019/04/websockets.png",
+      "views": 452,
       "userId": "1",
-      "createdAt": "12.03.2022",
-      "type": ["IT"],
+      "createdAt": "17.05.2022",
+      "type": ["SCIENCE"],
       "blocks": [
         {
           "id": "1",
@@ -550,12 +550,12 @@
     },
     {
       "id": "14",
-      "title": "TypeScript news",
-      "subtitle": "Что нового в TypeScript",
-      "img": "https://miro.medium.com/max/1200/1*lHnNGaEeAwccbD0jbF9DyQ.jpeg",
-      "views": 332,
+      "title": "SASS news",
+      "subtitle": "Что нового в SASS",
+      "img": "https://print-prime.ru/uploads/posts/2016-06/sass-dlya-samyh-malenkih-podrobnoe-rukovodstvo-video-uroki-css_1.jpeg",
+      "views": 411,
       "userId": "1",
-      "createdAt": "12.03.2022",
+      "createdAt": "12.06.2022",
       "type": ["IT"],
       "blocks": [
         {
@@ -586,13 +586,13 @@
     },
     {
       "id": "15",
-      "title": "TypeScript news",
-      "subtitle": "Что нового в TypeScript",
-      "img": "https://miro.medium.com/max/1200/1*lHnNGaEeAwccbD0jbF9DyQ.jpeg",
-      "views": 332,
+      "title": "Angular news",
+      "subtitle": "Что нового в Angular",
+      "img": "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto/gigs/127645587/original/632522c14f193344f1734833f4b5aab9bda92275/do-html-css-json-jquery-javascript-ajax-angularjs.png",
+      "views": 2231,
       "userId": "1",
-      "createdAt": "12.03.2022",
-      "type": ["IT"],
+      "createdAt": "19.07.2022",
+      "type": ["ECONOMICS"],
       "blocks": [
         {
           "id": "1",
@@ -622,9 +622,9 @@
     },
     {
       "id": "16",
-      "title": "TypeScript news",
-      "subtitle": "Что нового в TypeScript",
-      "img": "https://miro.medium.com/max/1200/1*lHnNGaEeAwccbD0jbF9DyQ.jpeg",
+      "title": "Vue news",
+      "subtitle": "Что нового в Vue",
+      "img": "https://f5-studio.com/wp-content/uploads/2020/07/1_WNPicrz6DJegizpj4VY58Q.jpeg",
       "views": 332,
       "userId": "1",
       "createdAt": "12.03.2022",

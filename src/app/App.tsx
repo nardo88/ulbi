@@ -11,6 +11,7 @@ import { AppRouter } from './providers/router'
 function App() {
   const dispatch = useDispatch()
   const inited = useSelector(getUserInited)
+
   useEffect(() => {
     dispatch(userActions.initAuthData())
   }, [dispatch])
