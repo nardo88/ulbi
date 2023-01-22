@@ -1,5 +1,6 @@
 import { FC, memo, useCallback, useEffect } from 'react'
 import { useSelector } from 'react-redux'
+import { useSearchParams } from 'react-router-dom'
 import { ArticleList } from 'entities/Article'
 import { classNames } from 'helpers/classNames/classNames'
 import {
@@ -31,14 +32,15 @@ const ArticlesPages: FC<ArticlesPages> = () => {
   const isLoading = useSelector(getArticlePageIsloading)
   const view = useSelector(getArticlePageView)
   const inited = useSelector(getArticlePageInited)
+  const [searchParams] = useSearchParams()
 
   const onLoadNextPart = useCallback(() => {
     dispatch(fetchNextArticlePage())
   }, [dispatch])
 
   useEffect(() => {
-    dispatch(initArticlePage())
-  }, [dispatch, inited])
+    dispatch(initArticlePage(searchParams))
+  }, [dispatch, inited, searchParams])
 
   return (
     <DinamicModuleLoader reducers={reducers}>

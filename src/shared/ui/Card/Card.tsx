@@ -2,13 +2,24 @@ import { classNames } from 'helpers/classNames/classNames'
 import { FC, HTMLAttributes } from 'react'
 import cls from './Card.module.scss'
 
-interface Card extends HTMLAttributes<HTMLDivElement> {
-  className?: string
+export enum CardTheme {
+  NORMAL = 'normal',
+  OUTLINED = 'outlined',
 }
 
-export const Card: FC<Card> = ({ className, children, ...otherProps }) => {
+interface Card extends HTMLAttributes<HTMLDivElement> {
+  className?: string
+  theme?: CardTheme
+}
+
+export const Card: FC<Card> = ({
+  className,
+  children,
+  theme = CardTheme.NORMAL,
+  ...otherProps
+}) => {
   return (
-    <div className={classNames(cls.Card, {}, [className])} {...otherProps}>
+    <div className={classNames(cls.Card, {}, [className, cls[theme]])} {...otherProps}>
       {children}
     </div>
   )

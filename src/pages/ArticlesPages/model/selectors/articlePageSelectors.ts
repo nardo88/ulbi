@@ -1,5 +1,6 @@
 import { StateSchema } from 'app/providers/StorePropvider'
 import { ArticleSortField } from 'entities/Article'
+import { ArticleTypes } from 'entities/Article/model/types/article'
 
 export const getArticlePageIsloading = (state: StateSchema) =>
   state.articlesPage?.isLoading || false
@@ -13,3 +14,5 @@ export const getArticlePageSearch = (state: StateSchema) => state.articlesPage?.
 export const getArticlePageOrder = (state: StateSchema) => state.articlesPage?.order ?? 'asc'
 export const getArticlePageSort = (state: StateSchema) =>
   state.articlesPage?.sort ?? ArticleSortField.CREATED
+export const getArticlePageType = (state: StateSchema) =>
+  state.articlesPage?.type || ArticleTypes.ALL
