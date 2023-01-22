@@ -1,4 +1,5 @@
 import { StateSchema } from 'app/providers/StorePropvider'
+import { ArticleSortField } from 'entities/Article'
 
 export const getArticlePageIsloading = (state: StateSchema) =>
   state.articlesPage?.isLoading || false
@@ -8,3 +9,7 @@ export const getArticlePageLimit = (state: StateSchema) => state.articlesPage?.l
 export const getArticlePageNumber = (state: StateSchema) => state.articlesPage?.page || 1
 export const getArticlePageHasMore = (state: StateSchema) => state.articlesPage?.hasMore
 export const getArticlePageInited = (state: StateSchema) => state.articlesPage?._inited
+export const getArticlePageSearch = (state: StateSchema) => state.articlesPage?.search ?? ''
+export const getArticlePageOrder = (state: StateSchema) => state.articlesPage?.order ?? 'asc'
+export const getArticlePageSort = (state: StateSchema) =>
+  state.articlesPage?.sort ?? ArticleSortField.CREATED
