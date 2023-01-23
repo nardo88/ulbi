@@ -20,7 +20,9 @@
       "views": 2167,
       "userId": "1",
       "createdAt": "26.05.2022",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -90,7 +92,9 @@
       "views": 3342,
       "userId": "1",
       "createdAt": "12.02.2022",
-      "type": ["SCIENCE"],
+      "type": [
+        "SCIENCE"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -160,7 +164,9 @@
       "views": 332,
       "userId": "1",
       "createdAt": "12.09.2022",
-      "type": ["ECONOMICS"],
+      "type": [
+        "ECONOMICS"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -196,7 +202,9 @@
       "views": 1121,
       "userId": "1",
       "createdAt": "22.03.2022",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -232,7 +240,9 @@
       "views": 6654,
       "userId": "1",
       "createdAt": "01.02.2022",
-      "type": ["SCIENCE"],
+      "type": [
+        "SCIENCE"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -268,7 +278,9 @@
       "views": 99087,
       "userId": "1",
       "createdAt": "10.07.2022",
-      "type": ["ECONOMICS"],
+      "type": [
+        "ECONOMICS"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -304,7 +316,9 @@
       "views": 12342,
       "userId": "1",
       "createdAt": "18.05.2022",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -340,7 +354,9 @@
       "views": 12,
       "userId": "1",
       "createdAt": "01.03.2022",
-      "type": ["SCIENCE"],
+      "type": [
+        "SCIENCE"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -376,7 +392,9 @@
       "views": 324324,
       "userId": "1",
       "createdAt": "10.12.2022",
-      "type": ["ECONOMICS"],
+      "type": [
+        "ECONOMICS"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -412,7 +430,9 @@
       "views": 1643,
       "userId": "1",
       "createdAt": "02.07.2022",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -448,7 +468,9 @@
       "views": 3424,
       "userId": "1",
       "createdAt": "22.08.2022",
-      "type": ["SCIENCE"],
+      "type": [
+        "SCIENCE"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -484,7 +506,9 @@
       "views": 9872,
       "userId": "1",
       "createdAt": "11.04.2022",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -520,7 +544,9 @@
       "views": 452,
       "userId": "1",
       "createdAt": "17.05.2022",
-      "type": ["SCIENCE"],
+      "type": [
+        "SCIENCE"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -556,7 +582,9 @@
       "views": 411,
       "userId": "1",
       "createdAt": "12.06.2022",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -592,7 +620,9 @@
       "views": 2231,
       "userId": "1",
       "createdAt": "19.07.2022",
-      "type": ["ECONOMICS"],
+      "type": [
+        "ECONOMICS"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -628,7 +658,9 @@
       "views": 332,
       "userId": "1",
       "createdAt": "12.03.2022",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -717,6 +749,48 @@
       "text": "mmm",
       "userId": "2",
       "id": "BhXMfhx"
+    },
+    {
+      "articleId": "5",
+      "text": "тестовый комментарий",
+      "userId": "2",
+      "id": "tV0zVMl"
+    },
+    {
+      "articleId": "5",
+      "text": "",
+      "userId": "2",
+      "id": "RtzHwMZ"
+    },
+    {
+      "articleId": "5",
+      "text": "",
+      "userId": "2",
+      "id": "3X1IPGf"
+    },
+    {
+      "articleId": "5",
+      "text": "",
+      "userId": "2",
+      "id": "3joP_6G"
+    },
+    {
+      "articleId": "5",
+      "text": "",
+      "userId": "2",
+      "id": "d6wIcG8"
+    },
+    {
+      "articleId": "5",
+      "text": "",
+      "userId": "2",
+      "id": "E2GeM3z"
+    },
+    {
+      "articleId": "5",
+      "text": "",
+      "userId": "2",
+      "id": "MRGVuXU"
     }
   ],
   "users": [

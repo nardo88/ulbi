@@ -12,7 +12,11 @@ import {
 import { ProfileSchema } from 'entities/Profile'
 import { AxiosInstance } from 'axios'
 import { ArticleDetailsSchema } from 'entities/Article'
-import { ArticleDetailsCommentsSchema } from 'pages/ArticleDetailsPage'
+import {
+  ArticleDetailsCommentsSchema,
+  ArticleDetailsRecomendationSchema,
+  ArticleDetailsPageSchema,
+} from 'pages/ArticleDetailsPage'
 import { AddCommentFormSchema } from 'features/AddCommentForm'
 import { ArticlePageSchema } from 'pages/ArticlesPages'
 import { UISchema } from 'features/UI'
@@ -26,7 +30,7 @@ export interface StateSchema {
   loginForm?: LoginSchema
   profile?: ProfileSchema
   articleDetails?: ArticleDetailsSchema
-  articleDetailsComments?: ArticleDetailsCommentsSchema
+  articleDetailsPage?: ArticleDetailsPageSchema
   addCommentForm?: AddCommentFormSchema
   articlesPage?: ArticlePageSchema
 }

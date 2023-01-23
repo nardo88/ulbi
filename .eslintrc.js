@@ -69,6 +69,7 @@ module.exports = {
     'implicit-arrow-linebreak': 'off',
     'quote-props': 'off',
     'react/no-array-index-key': 'off',
+    'react/jsx-curly-brace-presence': 'off',
   },
   globals: {
     __IS_DEV__: true,
