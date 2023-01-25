@@ -4,14 +4,12 @@ import { classNames } from 'helpers/classNames/classNames'
 import { FC, useCallback, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useDispatch, useSelector } from 'react-redux'
-import { useNavigate, useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import {
   DinamicModuleLoader,
   ReducerList,
 } from 'shared/lib/components/DinamicModuleLoader/DinamicModuleLoader'
 import { Text, TextSize } from 'shared/ui/Text/Text'
-import { Button } from 'shared/ui/Button/Button'
-import { RoutePath } from 'shared/config/routerConfig/routerConfig'
 import { Page } from 'widgets/Page/Page'
 import AddCommentForm from 'features/AddCommentForm/ui/AddCommentForm/AddCommentForm'
 import { getArticleComments } from '../../model/slices/articleDetailsCommentsSlice'
@@ -23,6 +21,7 @@ import { getArticleRecomendations } from '../../model/slices/articleDetailsPageR
 import { getArticleRecomendationsIsLoading } from '../../model/selectors/recomendations'
 import { fetchArticleRecomendations } from '../../model/services/fetchArticleRecomendations/fetchArticleRecomendations'
 import { articleDetailsReducer } from '../../model/slices'
+import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader'
 
 interface ArticleDetailsPage {}
 
@@ -38,7 +37,6 @@ const ArticleDetailsPage: FC<ArticleDetailsPage> = () => {
   const recomendations = useSelector(getArticleRecomendations.selectAll)
   const isLoading = useSelector(getArticleCommentsIsLoading)
   const recomendationIsLoading = useSelector(getArticleRecomendationsIsLoading)
-  const navigate = useNavigate()
 
   const onSendComment = useCallback(
     (text: string) => {
@@ -46,10 +44,6 @@ const ArticleDetailsPage: FC<ArticleDetailsPage> = () => {
     },
     [dispatch]
   )
-
-  const onBackToList = useCallback(() => {
-    navigate(RoutePath.articles)
-  }, [navigate])
 
   useEffect(() => {
     dispatch(fetchCommentsByArticleId(id))
@@ -62,7 +56,7 @@ const ArticleDetailsPage: FC<ArticleDetailsPage> = () => {
   return (
     <DinamicModuleLoader reducers={reducers} removeAfterUnmount>
       <Page className={classNames('', {}, [])}>
-        <Button onClick={onBackToList}>{t('Назад к списку')}</Button>
+        <ArticleDetailsPageHeader />
         <ArticleDetails id={id} />
         <Text size={TextSize.L} title={t('Рекомендуем')} className={cls.commentTitle} />
         <ArticleList
