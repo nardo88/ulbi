@@ -16,7 +16,7 @@ export function buildWebpackConfig(options: BuildOptions): webpack.Configuration
       clean: true,
       publicPath: '/',
     },
-    plugins: buildPlugins(paths.html, isDev, apiUrl),
+    plugins: buildPlugins(paths, isDev, apiUrl),
 
     module: {
       rules: buildLoaders(options),

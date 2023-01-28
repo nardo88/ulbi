@@ -5,6 +5,9 @@ export interface BuildPaths {
   build: string // путь до файла сборки (бандл)
   html: string // путь до шаблона html
   src: string // путь до точки входа для абсолютных путей
+  // указываем пути для плагина copy-webpack-plugin
+  locales: string // откуда копируем
+  buildLocales: string // куда копируем
 }
 
 export interface BuildOptions {

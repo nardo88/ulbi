@@ -1,15 +1,17 @@
 import HtmlWebpackPlugin from 'html-webpack-plugin'
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
+import CopyPlugin from 'copy-webpack-plugin'
 import webpack from 'webpack'
+import { BuildPaths } from './types/config'
 
 const buildPlugins = (
-  htmlPAth: string,
+  path: BuildPaths,
   isDev: boolean,
   apiUrl: string
 ): webpack.WebpackPluginInstance[] => {
   const plugins = [
     new HtmlWebpackPlugin({
-      template: htmlPAth,
+      template: path.html,
     }),
     new webpack.ProgressPlugin(),
     new MiniCssExtractPlugin({
@@ -19,6 +21,10 @@ const buildPlugins = (
     new webpack.DefinePlugin({
       __IS_DEV__: JSON.stringify(isDev),
       __API__: JSON.stringify(apiUrl),
+    }),
+
+    new CopyPlugin({
+      patterns: [{ from: path.locales, to: path.buildLocales }],
     }),
   ]
 
