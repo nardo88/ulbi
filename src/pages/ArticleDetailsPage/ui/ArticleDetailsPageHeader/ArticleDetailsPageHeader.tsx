@@ -7,13 +7,15 @@ import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { RoutePath } from 'shared/config/routerConfig/routerConfig'
 import { Button } from 'shared/ui/Button/Button'
-import cls from './ArticleDetailsPageHeader.module.scss'
+import { HStack } from 'shared/ui/Stack'
 
 interface ArticleDetailsPageHeader {
   className?: string
 }
 
-export const ArticleDetailsPageHeader: FC<ArticleDetailsPageHeader> = ({ className }) => {
+export const ArticleDetailsPageHeader: FC<ArticleDetailsPageHeader> = ({
+  className,
+}) => {
   const { t } = useTranslation()
   const navigate = useNavigate()
   const canEdit = useSelector(getCanEditArticle)
@@ -28,13 +30,9 @@ export const ArticleDetailsPageHeader: FC<ArticleDetailsPageHeader> = ({ classNa
   }, [navigate, article?.id])
 
   return (
-    <div className={classNames(cls.ArticleDetailsPageHeader, {}, [className])}>
+    <HStack justify="between" className={classNames('', {}, [className])}>
       <Button onClick={onBackToList}>{t('Назад к списку')}</Button>
-      {canEdit && (
-        <Button className={cls.editBtn} onClick={onEditArticle}>
-          {t('Редактировать')}
-        </Button>
-      )}
-    </div>
+      {canEdit && <Button onClick={onEditArticle}>{t('Редактировать')}</Button>}
+    </HStack>
   )
 }

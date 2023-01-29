@@ -5,6 +5,8 @@ import { useSelector } from 'react-redux'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
 import { Button, ButtonTheme } from 'shared/ui/Button/Button'
 import { Input } from 'shared/ui/Input/Input'
+import { HStack } from 'shared/ui/Stack'
+
 import {
   DinamicModuleLoader,
   ReducerList,
@@ -13,10 +15,7 @@ import {
   addCommentFormActions,
   addCommentFormReducer,
 } from '../../model/slices/AddCommentFormSlice'
-import {
-  getAddCommentFormText,
-  getAddCommentFormError,
-} from '../../model/selectors/addCommentFormSelector'
+import { getAddCommentFormText } from '../../model/selectors/addCommentFormSelector'
 
 import cls from './AddCommentForm.module.scss'
 
@@ -29,10 +28,12 @@ const initialReducers: ReducerList = {
   addCommentForm: addCommentFormReducer,
 }
 
-const AddCommentForm: FC<AddCommentFormProps> = ({ className, onSendComment }) => {
+const AddCommentForm: FC<AddCommentFormProps> = ({
+  className,
+  onSendComment,
+}) => {
   const { t } = useTranslation()
   const text = useSelector(getAddCommentFormText)
-  const error = useSelector(getAddCommentFormError)
   const dispatch = useAppDispatch()
 
   const onCommentTextChange = useCallback(
@@ -49,7 +50,10 @@ const AddCommentForm: FC<AddCommentFormProps> = ({ className, onSendComment }) =
 
   return (
     <DinamicModuleLoader reducers={initialReducers}>
-      <div className={classNames(cls.AddCommentForm, {}, [className])}>
+      <HStack
+        justify="between"
+        className={classNames(cls.AddCommentForm, {}, [className])}
+      >
         <Input
           className={cls.input}
           value={text || ''}
@@ -59,7 +63,7 @@ const AddCommentForm: FC<AddCommentFormProps> = ({ className, onSendComment }) =
         <Button theme={ButtonTheme.OUTLINE} onClick={onSendHandler}>
           {t('Отправить')}
         </Button>
-      </div>
+      </HStack>
     </DinamicModuleLoader>
   )
 }

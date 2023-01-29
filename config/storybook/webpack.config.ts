@@ -17,6 +17,8 @@ export default ({ config }: { config: webpack.Configuration }) => {
     html: '',
     // Здесь опишем путь до папки src
     src: path.resolve(__dirname, '..', '..', 'src'),
+    locales: '',
+    buildLocales: '',
   }
   // добавляем в конфиг путь до папки src что бы у нас работали абсолютные пути
   config.resolve?.modules?.push(paths.src)

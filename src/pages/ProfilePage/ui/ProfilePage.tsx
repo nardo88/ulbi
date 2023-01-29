@@ -17,6 +17,7 @@ import {
   ValidateProfileError,
 } from 'entities/Profile'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
+import { VStack } from 'shared/ui/Stack'
 import { Text, TextTheme } from 'shared/ui/Text/Text'
 import { useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
@@ -47,7 +48,9 @@ const ProfilePage: FC<ProfilePage> = ({ className }) => {
   const validateErrorTranslate = {
     [ValidateProfileError.INCORRECT_AGE]: t('Некорректный возраст'),
     [ValidateProfileError.INCORRECT_COUNTRY]: t('Некорректный регион'),
-    [ValidateProfileError.INCORRECT_USER_DATA]: t('Имя или фамилия обязательны'),
+    [ValidateProfileError.INCORRECT_USER_DATA]: t(
+      'Имя или фамилия обязательны'
+    ),
     [ValidateProfileError.NO_DATA]: t('Данные не указаны'),
     [ValidateProfileError.SERVER_ERROR]: t('Серверная ошибка при сохранении'),
   }
@@ -73,7 +76,11 @@ const ProfilePage: FC<ProfilePage> = ({ className }) => {
   )
   const onChangeAge = useCallback(
     (value?: string) => {
-      dispatch(profileActions.updateProfile({ age: Number(value?.replace(/\D/gi, '') || 0) }))
+      dispatch(
+        profileActions.updateProfile({
+          age: Number(value?.replace(/\D/gi, '') || 0),
+        })
+      )
     },
     [dispatch]
   )
@@ -100,38 +107,48 @@ const ProfilePage: FC<ProfilePage> = ({ className }) => {
 
   const onChangeCurrerncy = useCallback(
     (value?: Currency) => {
-      dispatch(profileActions.updateProfile({ currency: value || Currency.RUB }))
+      dispatch(
+        profileActions.updateProfile({ currency: value || Currency.RUB })
+      )
     },
     [dispatch]
   )
   const onChangeCountry = useCallback(
     (value?: Country) => {
-      dispatch(profileActions.updateProfile({ country: value || Country.Russia }))
+      dispatch(
+        profileActions.updateProfile({ country: value || Country.Russia })
+      )
     },
     [dispatch]
   )
   return (
     <DinamicModuleLoader reducers={redusers} removeAfterUnmount>
       <Page className={classNames('', {}, [className])}>
-        <ProfilePageHeader />
-        {validateErrors?.length &&
-          validateErrors.map((err) => (
-            <Text key={err} theme={TextTheme.ERROR} text={validateErrorTranslate[err]} />
-          ))}
-        <ProfileCard
-          data={formData}
-          isLoading={isLoading}
-          error={error}
-          readonly={readonly}
-          onChangeFirstName={onChangeFirstName}
-          onChangeLastname={onChangeLastname}
-          onChangeAge={onChangeAge}
-          onChangeCity={onChangeCity}
-          onChangeUsername={onChangeUsername}
-          onChangeAvatar={onChangeAvatar}
-          onChangeCurrerncy={onChangeCurrerncy}
-          onChangeCountry={onChangeCountry}
-        />
+        <VStack gap="16">
+          <ProfilePageHeader />
+          {validateErrors?.length &&
+            validateErrors.map((err) => (
+              <Text
+                key={err}
+                theme={TextTheme.ERROR}
+                text={validateErrorTranslate[err]}
+              />
+            ))}
+          <ProfileCard
+            data={formData}
+            isLoading={isLoading}
+            error={error}
+            readonly={readonly}
+            onChangeFirstName={onChangeFirstName}
+            onChangeLastname={onChangeLastname}
+            onChangeAge={onChangeAge}
+            onChangeCity={onChangeCity}
+            onChangeUsername={onChangeUsername}
+            onChangeAvatar={onChangeAvatar}
+            onChangeCurrerncy={onChangeCurrerncy}
+            onChangeCountry={onChangeCountry}
+          />
+        </VStack>
       </Page>
     </DinamicModuleLoader>
   )

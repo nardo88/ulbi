@@ -3,6 +3,7 @@ import { FC, memo, useMemo, useState } from 'react'
 import { Button, ButtonSize, ButtonTheme } from 'shared/ui/Button/Button'
 import { LangSwitcher } from 'shared/ui/LangSwitcher/LangSwitcher'
 import { ThemeSwitcher } from 'shared/ui/ThemeSwitcher'
+import { VStack } from 'shared/ui/Stack'
 import { useSelector } from 'react-redux'
 import cls from './Sidebat.module.scss'
 import { SidebarItem } from '../SidebarItem/SidebarItem'
@@ -37,7 +38,9 @@ export const Sidebar: FC<Sidebat> = memo(() => {
       >
         {collapsed ? '>' : '<'}
       </Button>
-      <div className={cls.items}>{itemList}</div>
+      <VStack gap="8" align="start" className={cls.items}>
+        {itemList}
+      </VStack>
       <div className={cls.switcher}>
         <ThemeSwitcher />
         <LangSwitcher short={collapsed} className={cls.lang} />
