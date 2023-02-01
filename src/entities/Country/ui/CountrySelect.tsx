@@ -1,7 +1,7 @@
 import { FC, memo, useCallback } from 'react'
 import { classNames } from 'helpers/classNames/classNames'
-import { Select } from 'shared/ui/Select/Select'
 import { useTranslation } from 'react-i18next'
+import { Listbox } from 'shared/ui/ListBox/ListBox'
 import { Country } from '../model/types/country'
 
 interface CountrySelect {
@@ -19,23 +19,27 @@ const options = [
   { value: Country.Armenia, content: Country.Armenia },
 ]
 
-export const CountrySelect: FC<CountrySelect> = memo(({ className, value, onChange, readonly }) => {
-  const { t } = useTranslation()
+export const CountrySelect: FC<CountrySelect> = memo(
+  ({ className, value, onChange, readonly }) => {
+    const { t } = useTranslation()
 
-  const onChangeHandler = useCallback(
-    (val: string) => {
-      onChange?.(val as Country)
-    },
-    [onChange]
-  )
-  return (
-    <Select
-      value={value}
-      readonly={readonly}
-      label={t('Укажите страну')}
-      options={options}
-      onChange={onChangeHandler}
-      className={classNames('', {}, [className])}
-    />
-  )
-})
+    const onChangeHandler = useCallback(
+      (val: string) => {
+        onChange?.(val as Country)
+      },
+      [onChange]
+    )
+    return (
+      <Listbox
+        value={value}
+        readonly={readonly}
+        defaultValue={t('Укажите страну')}
+        label={t('Укажите страну')}
+        items={options}
+        onChange={onChangeHandler}
+        direction="top"
+        className={classNames('', {}, [className])}
+      />
+    )
+  }
+)
