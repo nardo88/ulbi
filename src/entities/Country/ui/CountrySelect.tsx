@@ -37,7 +37,7 @@ export const CountrySelect: FC<CountrySelect> = memo(
         label={t('Укажите страну')}
         items={options}
         onChange={onChangeHandler}
-        direction="top"
+        direction="top right"
         className={classNames('', {}, [className])}
       />
     )

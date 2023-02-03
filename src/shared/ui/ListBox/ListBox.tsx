@@ -2,6 +2,7 @@ import { FC, ReactNode } from 'react'
 import { Listbox as HListBox } from '@headlessui/react'
 import { classNames } from 'helpers/classNames/classNames'
 import { Button } from 'shared/ui/Button/Button'
+import { DropdownDirection } from 'shared/types/ui'
 import cls from './ListBox.module.scss'
 import { HStack } from '../Stack'
 
@@ -10,8 +11,6 @@ export interface ListboxItem {
   content: ReactNode
   disabled?: boolean
 }
-
-type DropdownDirection = 'top' | 'bottom'
 
 interface ListboxProps {
   items?: ListboxItem[]
@@ -25,14 +24,16 @@ interface ListboxProps {
 }
 
 const mapDirrectionClass: Record<DropdownDirection, string> = {
-  bottom: cls.optionsBottom,
-  top: cls.optionsTop,
+  'bottom left': cls.optionsBottomLeft,
+  'bottom right': cls.optionsBottomRight,
+  'top left': cls.optionsTopLeft,
+  'top right': cls.optionsTopRight,
 }
 
 export const Listbox: FC<ListboxProps> = (props) => {
   const {
     className,
-    direction = 'bottom',
+    direction = 'bottom left',
     items,
     value,
     defaultValue,
@@ -54,7 +55,7 @@ export const Listbox: FC<ListboxProps> = (props) => {
         value={value}
         onChange={onChange}
       >
-        <HListBox.Button disabled={readonly} className={cls.trigger}>
+        <HListBox.Button as="div" className={cls.trigger}>
           <Button disabled={readonly}>{value ?? defaultValue}</Button>
         </HListBox.Button>
         <HListBox.Options
@@ -62,6 +63,7 @@ export const Listbox: FC<ListboxProps> = (props) => {
         >
           {items?.map((item) => (
             <HListBox.Option
+              as="ul"
               key={item.value}
               value={item.value}
               disabled={item?.disabled}
