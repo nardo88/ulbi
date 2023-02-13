@@ -63,11 +63,11 @@ export const Navbar: FC<NavbarProps> = memo(({ className }) => {
           items={[
             ...(isAdminPanelAvailable
               ? [
-                  {
-                    content: t('Админка'),
-                    href: RoutePath.admin_panel,
-                  },
-                ]
+                {
+                  content: t('Админка'),
+                  href: RoutePath.admin_panel,
+                },
+              ]
               : []),
             {
               content: t('Профиль'),
