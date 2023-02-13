@@ -55,6 +55,7 @@ module.exports = {
     'react/jsx-closing-bracket-location': 'off',
     'no-redeclare': 'off',
     'max-len': 'off',
+    'function-paren-newline': 'off',
     'linebreak-style': 'off',
     'prefer-arrow-callback': 'off',
     'jsx-a11y/click-events-have-key-events': 'off',
