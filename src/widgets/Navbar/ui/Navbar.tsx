@@ -6,8 +6,8 @@ import {
 } from 'entities/User'
 import { LoginModal } from 'features/AuthByUsername'
 import { classNames } from 'helpers/classNames/classNames'
-import { t } from 'i18next'
 import { FC, memo, useCallback, useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { useDispatch, useSelector } from 'react-redux'
 import { RoutePath } from 'shared/config/routerConfig/routerConfig'
 import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink'
@@ -27,6 +27,7 @@ export const Navbar: FC<NavbarProps> = memo(({ className }) => {
   const dispatch = useDispatch()
   const isAdmin = useSelector(isUserAdmin)
   const isManager = useSelector(isUserManager)
+  const { t } = useTranslation()
 
   const onCloseModal = useCallback(() => {
     setIsAuthModal(false)
@@ -63,11 +64,11 @@ export const Navbar: FC<NavbarProps> = memo(({ className }) => {
           items={[
             ...(isAdminPanelAvailable
               ? [
-                {
-                  content: t('Админка'),
-                  href: RoutePath.admin_panel,
-                },
-              ]
+                  {
+                    content: t('Админка'),
+                    href: RoutePath.admin_panel,
+                  },
+                ]
               : []),
             {
               content: t('Профиль'),

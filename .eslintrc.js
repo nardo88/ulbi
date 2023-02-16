@@ -18,9 +18,12 @@ module.exports = {
     // indent - количество пробелов - 2
     'react/jsx-indent': [2, 2],
     'react/jsx-indent-props': [2, 2],
-    indent: [2, 2],
+    indent: 'off',
     // указывает в каких файлах разрешен JSX (с какими расширениями)
-    'react/jsx-filename-extension': [2, { extensions: ['.js', '.jsx', '.tsx'] }],
+    'react/jsx-filename-extension': [
+      2,
+      { extensions: ['.js', '.jsx', '.tsx'] },
+    ],
     // отключаем проветку на использование абсолютных путей
     'import/no-unresolved': 'off',
     // отключаем предпочтение дефолтного экспорта

@@ -7,7 +7,7 @@ import cls from './Dropdown.module.scss'
 
 interface DropdownItem {
   disabled?: boolean
-  content: ReactNode
+  content?: ReactNode
   onClick?: () => void
   href?: string
 }

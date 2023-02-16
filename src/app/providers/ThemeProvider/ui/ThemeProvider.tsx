@@ -1,4 +1,4 @@
-import React, { FC, useMemo, useState } from 'react'
+import React, { FC, ReactNode, useMemo, useState } from 'react'
 import {
   LOCAL_STORAGE_THEME_KEY,
   Theme,
@@ -7,6 +7,7 @@ import {
 
 interface ThemeProviderProps {
   initialTheme?: Theme
+  children: ReactNode
 }
 
 // eslint-disable-next-line operator-linebreak

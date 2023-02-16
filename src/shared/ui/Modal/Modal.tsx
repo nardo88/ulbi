@@ -1,4 +1,11 @@
-import React, { FC, useCallback, useEffect, useRef, useState } from 'react'
+import React, {
+  FC,
+  ReactNode,
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+} from 'react'
 import { classNames, Mods } from 'helpers/classNames/classNames'
 import { Portal } from 'shared/ui/Portal/Portal'
 import cls from './Modal.module.scss'
@@ -7,6 +14,7 @@ interface Modal {
   isOpen?: boolean
   onClose?: () => void
   lazy?: boolean
+  children: ReactNode
 }
 
 const ANIMATION_DELAY = 300

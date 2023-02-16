@@ -1,4 +1,7 @@
-import { loginActions, loginReducer } from 'features/AuthByUsername/model/slice/loginSlice'
+import {
+  loginActions,
+  loginReducer,
+} from 'features/AuthByUsername/model/slice/loginSlice'
 import { classNames } from 'helpers/classNames/classNames'
 import { FC, memo, useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
@@ -36,14 +39,14 @@ const LoginForm: FC<LoginFormProps> = memo(({ className, onSuccess }) => {
   const isLoading = useSelector(getLoginIsloading)
 
   const onChangeUsername = useCallback(
-    (val) => {
+    (val: string) => {
       dispatch(loginActions.setUsername(val))
     },
     [dispatch]
   )
 
   const onChangePassword = useCallback(
-    (val) => {
+    (val: string) => {
       dispatch(loginActions.setPassworf(val))
     },
     [dispatch]
